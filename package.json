@@ -1,12 +1,26 @@
 {
   "name": "swycregistration",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Janice Adea",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/findjanice/swyc-registration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/findjanice/swyc-registration/issues"
+  },
+  "homepage": "https://github.com/findjanice/swyc-registration#readme",
+  "description": ""
 }
