@@ -8,7 +8,7 @@ var app = express();
 //controllers
 
 var userCtrl = require('./controller/userCtrl');
-
+var registrationCtrl = require('./controller/registrationCtrl');
 //middleware
 
 app.use(bodyParser.json());
@@ -16,8 +16,12 @@ app.use(express.static('public'));
 app.use(cors());
 
 //end points
+//user end point
 app.post('/user', userCtrl.create);
 app.get('/user', userCtrl.read);
+//registration end point
+app.post('/registration', registrationCtrl.create);
+app.post('/registration', registrationCtrl.read);
 
 //connections
 var port = 3000;

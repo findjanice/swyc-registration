@@ -4,15 +4,15 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   firstname: {
     type: String,
-    required: true
+    required: true,
+    lowercase: true,
+    maxlength: 20
   },
   lastname: {
     type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
+    required: true,
+    lowercase: true,
+    maxlength: 20
   },
   phone: {
     type: String,
@@ -20,7 +20,8 @@ var userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    lowercase: true
   },
   gender: {
     type: String,
