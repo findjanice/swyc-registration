@@ -5,10 +5,9 @@
   background: url(http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png) no-repeat;
 }
 
-/*.md-button {
-  padding: 0 6px 0 6px;
+.md-headline {
+  padding: 0 12px 0 12px;
   margin: 6px 8px 6px 8px;
-  min-width: 88px;
   border-radius: 3px;
   font-size: 1px;
   text-align: center;
@@ -16,4 +15,4 @@
   text-decoration:underline;
   border: none;
   outline: none;
-}*/
+}
