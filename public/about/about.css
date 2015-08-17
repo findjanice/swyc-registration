@@ -1,0 +1,13 @@
+.about-page {
+  background-color: grey;
+  padding-bottom: 170px;
+  height: 400px;
+  width: 1200px;
+}
+p {
+  font-size: 80px
+}
+
+.inner {
+
+}

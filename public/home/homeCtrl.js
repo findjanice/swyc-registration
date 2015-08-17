@@ -1,5 +1,5 @@
 app.controller('homeCtrl', function($scope, $routeParams) {
 
-  $scope.test = "Hello World";
+  $scope.test = "Hello Test";
   //end homeCtrl
 })

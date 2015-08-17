@@ -4,7 +4,13 @@ app.config(function($routeProvider, $mdThemingProvider) {
   $routeProvider
     .when('/home', {
       templateUrl: 'home/home.html',
-      controller: 'homeCtrl'
+      controller: 'homeCtrl',
+      css: 'home/home.css'
+    })
+    .when('/about', {
+      templateUrl: 'about/about.html',
+      controller: 'aboutCtrl',
+      css: 'about/about.css'
     })
     .otherwise({
       redirectTo: '/home'

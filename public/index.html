@@ -1,33 +1,34 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>GYC Southwest</title>
-  <meta name="description" content="GYC Southwest Home of Southwest Youth Conference">
+  <title>GYC Southwest - Home of Southwest Youth Conference </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href-"./home/home.css">
+  <link rel="stylesheet" href-"./about/about.css">
   <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
-<body layout="column" ng-app="swyc">
+<body layout="column" ng-app="swyc" class="body">
 
 <!-- Menu   -->
 
-<div class ="navbar" layout = "row">
+<nav class ="navbar" layout = "row" flex>
+
 <md-toolbar layout="row" class="navigation" layout-align="space-around center">
+<img src="http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png">
   <h2 class="md-toolbar-tools"></h2></span>
-  <a class="md-headline" href="#">Home</a>
-    <a class="md-headline" href="#">SWYC 2015</a>
-      <a class="md-headline" href="#">About</a>
-        <a class="md-headline" href="#">Contact</a>
-        <a class="md-headline" href="#">Admin</a>
-  <!-- <md-button aria-label="Home"> Home </md-button>
-  <md-button aria-label="SWYC 2015"> SWYC 2015 </md-button>
-  <md-button aria-label="About"> About </md-button>
-  <md-button aria-label="Contact"> Contact </md-button>
-    <md-button aria-label="Admin"> Admin </md-button> -->
+  <a class="md-headline" href="#/home">Home</a>
+    <a class="md-headline" href="#/swyc">SWYC'15</a>
+      <a class="md-headline" href="#/about">About</a>
+        <a class="md-headline" href="#/contact">Contact</a>
+        <a class="md-headline" href="#/admin">Admin</a>
 </md-toolbar>
+
 <!-- end Menu   -->
-</div>
-<div>
+</nav>
+
+<div class = "content" id="main" layout="row">
   <ng-view></ng-view>
 </div>
 
@@ -41,6 +42,6 @@
   <!-- javascript -->
   <script src="./js/app.js"></script>
   <script src="./home/homeCtrl.js"></script>
-
+  <script src="./about/aboutCtrl.js"></script>
 </body>
 </html>
