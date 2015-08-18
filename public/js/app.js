@@ -12,6 +12,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'aboutCtrl',
       css: 'about/about.css'
     })
+    .when('/swyc', {
+      templateUrl: 'swyc/swyc.html',
+      controller: 'swycCtrl',
+      css: 'swyc/swyc.css'
+    })
     .otherwise({
       redirectTo: '/home'
     })

@@ -1,13 +1,21 @@
-.about-page {
-  background-color: grey;
-  padding-bottom: 170px;
+.container {
+  background-image: url(https://images.unsplash.com/photo-1438368915865-a852ef86fc42?q=80&fm=jpg&s=15e4744077e36852ba57f46f4660dc7a);
   height: 400px;
-  width: 1200px;
+  width: 1280px;
+
+}
+.inner {
+margin: 10px;
+  height: 100px;
+  width: 500px;
+  float: left;
 }
 p {
-  font-size: 80px
+  font-size: 60px;
+  color: white;
 }
 
-.inner {
-
+.about {
+  background-color: grey;
+  height: 500px;
 }

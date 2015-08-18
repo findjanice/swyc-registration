@@ -13,3 +13,9 @@ var purpose = [
   "Using outreach to touch our local and global community in tangible ways",
   "and Hastening the soon return of Jesus Christ through proclamation of the Three Angels’ Messages, thus encouraging others to prepare to meet Him."
 ];
+
+var conferenceInfo = {
+  theme: "Christ Our Righteousness",
+  date: "September 4 - 7, 2015"
+  location: "Pine Springs Ranch in Mountain, CA"
+}

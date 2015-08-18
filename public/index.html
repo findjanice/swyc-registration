@@ -2,10 +2,11 @@
 <html>
 <head>
   <title>GYC Southwest - Home of Southwest Youth Conference </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href-"./home/home.css">
   <link rel="stylesheet" href-"./about/about.css">
+    <link rel="stylesheet" href-"./swyc/swyc.css">
   <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
@@ -19,16 +20,15 @@
 <img src="http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png">
   <h2 class="md-toolbar-tools"></h2></span>
   <a class="md-headline" href="#/home">Home</a>
-    <a class="md-headline" href="#/swyc">SWYC'15</a>
+    <a class="md-headline" href="#/swyc">SWYC</a>
       <a class="md-headline" href="#/about">About</a>
         <a class="md-headline" href="#/contact">Contact</a>
         <a class="md-headline" href="#/admin">Admin</a>
 </md-toolbar>
-
-<!-- end Menu   -->
 </nav>
+<!-- end Menu   -->
 
-<div class = "content" id="main" layout="row">
+<div class = "content" id="main" layout="row" flex>
   <ng-view></ng-view>
 </div>
 
@@ -43,5 +43,6 @@
   <script src="./js/app.js"></script>
   <script src="./home/homeCtrl.js"></script>
   <script src="./about/aboutCtrl.js"></script>
+    <script src="./swyc/swycCtrl.js"></script>
 </body>
 </html>
