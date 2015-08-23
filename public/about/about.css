@@ -1,11 +1,93 @@
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
 .container {
-  background-image: url(https://images.unsplash.com/photo-1438368915865-a852ef86fc42?q=80&fm=jpg&s=15e4744077e36852ba57f46f4660dc7a);
-  height: 400px;
-  width: 1280px;
+  width: 960px;
+  margin: 0 auto;
+}
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+  margin-bottom: 40px;
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+}
+section.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.content {
+  padding: 40px 0;
+}
+section.module.parallax {
+  height: 600px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+section.module.parallax h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 40px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax-1 {
+  background-image: url("../img/IMG_2954.jpg");
+}
+section.module.parallax-2 {
+  background-image: url("../img/IMG_0002.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("../img/IMG_0001.jpg");
+  background-color: green;
+}
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 42px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
+}
+
+
+/*.container {
+  height: 600px;
+  width: 1280px;
 }
 .inner {
-margin: 10px;
+  margin: 10px;
   height: 100px;
   width: 500px;
   float: left;
@@ -14,8 +96,20 @@ p {
   font-size: 60px;
   color: white;
 }
-
 .about {
   background-color: grey;
   height: 500px;
 }
+.aboutSWYC {
+  margin: 20px;
+}
+h2 {
+  color: white;
+}
+.aboutQuote {
+  background-color: grey;
+  height: 500px;
+}
+.quote {
+  margin: 20px;
+}*/
