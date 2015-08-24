@@ -1,4 +1,4 @@
-var app = angular.module('swyc', ['ngMaterial', 'ngRoute']);
+var app = angular.module('swyc', ['ngMaterial', 'ngRoute', 'ngMessages']);
 
 app.config(function($routeProvider, $mdThemingProvider) {
   $routeProvider
@@ -16,6 +16,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       templateUrl: 'swyc/swyc.html',
       controller: 'swycCtrl',
       css: 'swyc/swyc.css'
+    })
+    .when('/contact', {
+      templateUrl: 'contact/contact.html',
+      controller: 'contactCtrl',
+      css: 'contact/contact.css'
     })
     .otherwise({
       redirectTo: '/home'

@@ -69,16 +69,15 @@ app.service('dataService', function($http, $q) {
   }, {
     name: "Kyle Allen",
     occupation: "Secretary-Treasurer, ASI"
-  }, {
-    name: "Janice Adea",
-    occupation: "Student"
   }];
 
-  // var conferenceInfo = {
-  //   theme: "Christ Our Righteousness",
-  //   date: "September 4 - 7, 2015"
-  //   location: "Pine Springs Ranch in Mountain, CA"
-  // }
+  var conferenceInfo = [{
+    theme: "Christ Our Righteousness",
+    themeVerse: "I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me. - Galatians 2:20",
+    speakers: "Doug Batchelor, Dwayne Lemon, Norman McNulty, Virna Santos, Keala Thompson, Esmie Brenner",
+    date: "September 4 - 7, 2015",
+    location: "Pine Springs Ranch in Mountain, CA"
+  }];
 
   this.aboutSWYC = function() {
     return aboutSWYC;

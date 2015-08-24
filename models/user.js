@@ -32,8 +32,12 @@ var userSchema = new Schema({
     type: String,
     enum: ['0-3 years old', '4-12 years old', '13 and above'],
     required: 'true'
-  }
-})
+  },
+  booking: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Registration'
+  }]
+});
 
 //end of userSchema
 
