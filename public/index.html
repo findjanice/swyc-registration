@@ -1,45 +1,77 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
   <title>GYC Southwest - Home of Southwest Youth Conference </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/base.css">
+  <meta content="width=device-width,initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href-"./home/home.css">
-  <link rel="stylesheet" href-"./about/about.css">
-    <link rel="stylesheet" href-"./swyc/swyc.css">
+  <link rel="stylesheet" href- "./home/home.css">
+  <link rel="stylesheet" href- "./about/about.css">
+  <link rel="stylesheet" href- "./swyc/swyc.css">
   <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 </head>
+
 <body layout="column" ng-app="swyc" class="body">
-<div class ="wrapper">
+  <div class="wrapper">
 
 
-<!-- Menu   -->
+    <!-- Menu   -->
 
-<nav class ="navbar" layout = "row" flex>
+    <nav class="navbar" layout="row" flex>
 
-<md-toolbar layout="row" class="navigation" layout-align="space-around center">
-<img src="http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png">
-  <h2 class="md-toolbar-tools"></h2></span>
-  <a class="md-headline" href="#/home">Home</a>
-    <a class="md-headline" href="#/swyc">SWYC</a>
-      <a class="md-headline" href="#/about">About</a>
+      <md-toolbar layout="row" class="navigation" layout-align="space-around center">
+        <img src="http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png">
+        <h2 class="md-toolbar-tools"></h2>
+        </span>
+        <a class="md-headline" href="#/home">Home</a>
+        <a class="md-headline" href="#/swyc">SWYC</a>
+        <a class="md-headline" href="#/about">About</a>
         <a class="md-headline" href="#/contact">Contact</a>
         <a class="md-headline" href="#/admin">Admin</a>
-</md-toolbar>
-</nav>
-<!-- end Menu   -->
+      </md-toolbar>
+    </nav>
+    <!-- end Menu   -->
 
-<div id ="main" layou="row" flex>
-  <ng-view></ng-view>
-</div>
+    <div id="main" layou="row" flex>
+      <ng-view></ng-view>
+    </div>
 
- <!-- <div class = "content" id="main" layout="row" flex>
 
- </div> -->
-<!-- end of wrapper -->
-</div>
+    		<footer class="footer-distributed">
+
+    			<div class="footer-right">
+
+    				<a href="#"><i class="fa fa-facebook"></i></a>
+    				<a href="#"><i class="fa fa-twitter"></i></a>
+    				<a href="#"><i class="fa fa-youtube"></i></a>
+    				<a href="#"><i class="fa fa-instagram"></i></a>
+
+    			</div>
+
+    			<div class="footer-left">
+
+    				<p class="footer-links">
+    					<a href="#">Home</a>
+    					·
+    					<a href="#">SWYC</a>
+    					·
+    					<a href="#">About</a>
+    					·
+    					<a href="#">Contact</a>
+    				</p>
+
+    				<p>GYC Southwest &copy; 2015</p>
+
+    			</div>
+
+    		</footer>
+
+ </div> 
+    <!-- end of wrapper -->
+  </div>
 
   <!-- angular scripts -->
   <script src="../bower_components/angular/angular.js"></script>
@@ -51,8 +83,9 @@
   <!-- javascript -->
   <script src="./js/app.js"></script>
   <script src="./home/homeCtrl.js"></script>
-    <script src="./services/dataService.js"></script>
+  <script src="./services/dataService.js"></script>
   <script src="./about/aboutCtrl.js"></script>
-    <script src="./swyc/swycCtrl.js"></script>
+  <script src="./swyc/swycCtrl.js"></script>
 </body>
+
 </html>

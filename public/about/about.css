@@ -44,15 +44,6 @@ section.module.parallax h1 {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-section.module.parallax h2 {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 40px;
-  line-height: 600px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 section.module.parallax-1 {
   background-image: url("../img/IMG_2954.jpg");
 }
@@ -82,34 +73,34 @@ section.module.parallax-3 {
 }
 
 
-/*.container {
-  height: 600px;
-  width: 1280px;
+blockquote {
+color: #1A237E;
+border:none;
+margin-bottom:-30px;
+position: relative;
+    margin: 0 auto;
+    padding-left: 0.4em;
 }
-.inner {
-  margin: 10px;
-  height: 100px;
-  width: 500px;
-  float: left;
+
+blockquote h3 {
+    font-size:21px;
 }
-p {
-  font-size: 60px;
-  color: white;
+
+blockquote h3:before {
+    content: "\201C";
+    font-weight: bold;
+    font-size:50px;
+    color:#616161;
+    position: absolute;
+    top: -0.2em;
+    left: -0.5em;
 }
-.about {
-  background-color: grey;
-  height: 500px;
+blockquote h3:after {
+    content: "\201D";
+    font-weight: bold;
+    font-size:50px;
+    color:#616161;
+    position: absolute;
+    bottom: -0.6em;
+    right: 0;
 }
-.aboutSWYC {
-  margin: 20px;
-}
-h2 {
-  color: white;
-}
-.aboutQuote {
-  background-color: grey;
-  height: 500px;
-}
-.quote {
-  margin: 20px;
-}*/

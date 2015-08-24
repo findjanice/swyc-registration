@@ -1,6 +1,5 @@
- <link rel="stylesheet" ng-href="{{css}}">
-
- <section class="module parallax parallax-1">
+<link rel="stylesheet" ng-href="{{css}}">
+<section class="module parallax parallax-1">
   <div class="container">
     <h1>ABOUT</h1>
   </div>
@@ -8,13 +7,11 @@
 
 <section class="module content">
   <div class="container">
-    <h2>GYC Southwest</h2>
     <div ng-repeat="about in aboutInfo">
-    <p>{{about.about}}</p>
-    <p>GYC Southwest is one of several regional afﬁliates of the <a href="http://www.gycweb.org"> Generation of Youth for Christ </a> (GYC).
-    </p>
-
-    </p>
+      <p>{{about.about}}</p>
+      <p>GYC Southwest is one of several regional afﬁliates of the <a href="http://www.gycweb.org"> Generation of Youth for Christ </a> (GYC).
+      </p>
+    </div>
   </div>
 </section>
 
@@ -29,8 +26,22 @@
 
     <p> The mission of GYC Southwest is best articulated in Fundamentals of Christian Education (1923), page 203:</p>
     <blockquote>
-
+      <h3>
+        We are all one in Christ, and should unite heartily in an effort to educate and train an army of young men and women in such a way that they will be consistent, well-balanced Christians, able to understand and explain the Scriptures. The purity, faith,
+        zeal, and consistency of character in those who go forth to work for the Lord, should be so evident that others may see their good works, and be led to glorify our Father who is in heaven. If our profession of faith is sustained by heartfelt piety,
+        it will be a means of good; for thereby souls will be influenced to comply with the terms of salvation. God designs that His grace should be made manifest in the believer, that through the Christlike character of individual members, the church
+        may become the light of the world.
+      </h3>
     </blockquote>
+    <br>
+    <p>
+      The purpose of GYC Southwest is to support the mission and message of the Seventh-day Adventist Church by encouraging young people in the southwestern United States to be actively involved in the ministry of the Church. It seeks to do this by:
+    </p>
+    <div ng-repeat="purpose in aboutPurpose">
+      <p>
+        {{purpose}}
+      </p>
+    </div>
   </div>
 </section>
 
@@ -42,48 +53,50 @@
 
 <section class="module content">
   <div class="container">
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-  </div>
-</section>
-
-<!-- <div class="about-page">
-
-<section id="ministry">
-<div class="container">
-  <div class="inner">
+    <blockquote>
+      <h3>Prayer is our breath, Truth is our banner, Faith is our life, the Love of Christ is our motivation, and Hope is our song.</h3>
+    </blockquote>
+    <br>
     <p>
-      Being co-laborers with Christ...
+      All members of the GYC Southwest leadership team are volunteers and remain in good and regular standing at local SDA Churches. We have each answered God’s call to share Christ and Him crucified with our friends, families, and communities.
     </p>
+
+    <h2>Executive Commitee</h2>
+    <div layout="row">
+      <div flex="33" layout-wrap ng-repeat="ecom in ecomList">
+        <p>
+          {{ecom.name}}
+          <br> {{ecom.position}}
+          <br> {{ecom.occupation}}
+        </p>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <h2>Members</h2>
+
+    <div layout="row">
+      <div flex="33" layout-wrap ng-repeat="member in memberList">
+        <p>
+          {{member.name}}
+          <br> {{member.position}}
+          <br>
+        </p>
+        <br>
+      </div>
+    </div>
+    <br>
+    <h2>Board of Directors</h2>
+    <div layout="row">
+      <div flex="33" layout-wrap ng-repeat="board in boardList">
+        <p>
+          {{board.name}}
+          <br> {{board.occupation}}
+          <br>
+        </p>
+        <br>
+      </div>
+    </div>
   </div>
-</div>
 </section>
-<div class="about">
-  <div class="aboutSWYC">
-  <h2 class="md-display-1">GYC Southwest </h2>
-  <p class="md-subhead">
-    is a grassroots movement of Seventh-day Adventist youth and young adults.  Our purpose is to support the mission and message of the Seventh-day Adventist Church by encouraging young people in the southwestern United States to be actively involved in the ministry of the Church and equipping them for service to God and man.
-  </p>
-  <p class="md-subhead">
-    GYC Southwest is one of several regional afﬁliates of the Generation of Youth for Christ (GYC).
-  </p>
-    </div>
-</div>
-<div class="aboutQuote">
-  <div class="quote">
-  <h2 class="md-display-1">GYC Southwest </h2>
-  <p class="md-subhead">
-    is a grassroots movement of Seventh-day Adventist youth and young adults.  Our purpose is to support the mission and message of the Seventh-day Adventist Church by encouraging young people in the southwestern United States to be actively involved in the ministry of the Church and equipping them for service to God and man.
-  </p>
-  <p class="md-subhead">
-    GYC Southwest is one of several regional afﬁliates of the Generation of Youth for Christ (GYC).
-  </p>
-    </div>
-</div>
-
-<!-- end about page div -->
-<!-- </div> --> -->
-
-
-
-{{test}}

@@ -12,7 +12,30 @@ app.controller('aboutCtrl', function($scope, $routeParams, $route, $location,
 
   $scope.aboutSWYC();
 
+  $scope.purpose = function() {
+    $scope.aboutPurpose = dataService.purpose();
+  };
 
-  $scope.test = "HEllo World";
+  $scope.purpose();
+
+  $scope.ecom = function() {
+    $scope.ecomList = dataService.ecom();
+  }
+
+  $scope.ecom();
+
+  $scope.members = function() {
+    $scope.memberList = dataService.members();
+  }
+
+  $scope.members();
+
+  $scope.board = function() {
+    $scope.boardList = dataService.board();
+  };
+
+  $scope.board();
+
+
   //end homeCtrl
 })
