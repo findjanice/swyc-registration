@@ -17,10 +17,10 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'swycCtrl',
       css: 'swyc/swyc.css'
     })
-    .when('/swyc:register', {
+    .when('/register', {
       templateUrl: 'swyc/register/register.html',
       controller: 'registerCtrl',
-      css: 'swyc/register/swyc.css'
+      css: 'swyc/register/register.css'
     })
     .when('/contact', {
       templateUrl: 'contact/contact.html',

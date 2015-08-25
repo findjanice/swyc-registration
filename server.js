@@ -24,8 +24,7 @@ app.post('/user', userCtrl.create);
 app.get('/user', userCtrl.read);
 //registration end point
 app.post('/registration', registrationCtrl.create);
-app.get(
-  '/registration', registrationCtrl.read);
+app.get('/registration', registrationCtrl.read);
 //nodemailer
 
 app.post('/contact', function(req, res) {
@@ -36,7 +35,6 @@ app.post('/contact', function(req, res) {
       pass: 'zylgfngbbavbgafb'
     }
   });
-
 
   console.log('SMTP Configured', req.body);
 

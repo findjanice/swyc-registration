@@ -33,6 +33,10 @@
   position: relative;
   padding-bottom: 3px;
 }
+/*.navbar a:active {
+  text-decoration: underline;
+  background: #848484
+}*/
 .navbar a:after {
   content: '';
   display: block;
