@@ -1,4 +1,17 @@
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+body {
+    background-color: #EFEBE9;
+}
 
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+/* ============================================================
+  SECTIONS
+============================================================ */
 h2 {
   margin-bottom: 40px;
   font-family: "Roboto Slab", serif;
@@ -11,11 +24,15 @@ p {
   font-weight: 300;
 }
 
-.inputdemoIcons .inputIconDemo {
+/*.inputdemoIcons .inputIconDemo {
   min-height: 48px; }
 .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
   color: green; }
 .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
   color: dodgerblue; }
 .inputdemoIcons md-input-container.md-input-invalid > md-icon.email, .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
-  color: red; }
+  color: red; }*/
+
+md-content {
+  background-color: #EFEBE9;
+}

@@ -24,7 +24,7 @@ app.post('/user', userCtrl.create);
 app.get('/user', userCtrl.read);
 //registration end point
 app.post('/registration', registrationCtrl.create);
-app.post(
+app.get(
   '/registration', registrationCtrl.read);
 //nodemailer
 
@@ -41,10 +41,9 @@ app.post('/contact', function(req, res) {
   console.log('SMTP Configured', req.body);
 
   var mailOptions = {
-    from: {
-      name: req.body.name,
-      email: req.body.email
-    },
+    from: req.body.name,
+    sender: req.body.email,
+    replyTo: req.body.email,
     to: 'findjanice@gmail.com',
     subject: req.body.subject,
     text: req.body.message
@@ -59,8 +58,7 @@ app.post('/contact', function(req, res) {
       return;
     }
 
-
-    //Yay!! Email sent
+    // Email sent
     console.log('Message sent successfully!');
     console.log('Server responded with "%s"', info.response);
   });

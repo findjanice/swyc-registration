@@ -1,5 +1,6 @@
 var Registration = require('../models/registration');
 
+
 module.exports = {
   create: function(req, res) {
     var newRegistration = new Registration(req.body);
@@ -10,11 +11,17 @@ module.exports = {
   },
 
   read: function(req, res) {
-    console.log('req.query inside registrationCtrl:', req.query);
-    Registration.find(req.query).exec(function(err, result) {
-      if (err) return res.status(500).send(err);
-      res.send(result);
-    });
+    console.log('%%%%%%%%%%%%%%%% req.body', req.body)
+    Registration
+      .find({
+        regtype: 'Lodge'
+      })
+      .populate('attendee')
+      // Registration.find(req.query)
+      .exec(function(err, result) {
+        if (err) return res.status(500).send(err);
+        res.send(result);
+      });
   }
 
   //end module.exports

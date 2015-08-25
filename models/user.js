@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
+  role: {
+    type: String,
+    enum: ['administrator', 'attendee'],
+    required: true
+  },
   firstname: {
     type: String,
     required: true,
@@ -16,11 +21,9 @@ var userSchema = new Schema({
   },
   phone: {
     type: String,
-    required: true
   },
   email: {
     type: String,
-    required: true,
     lowercase: true
   },
   gender: {
@@ -30,13 +33,12 @@ var userSchema = new Schema({
   },
   age: {
     type: String,
-    enum: ['0-3 years old', '4-12 years old', '13 and above'],
-    required: 'true'
+    enum: ['0-3 years old', '4-12 years old', '13 and above']
   },
-  booking: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Registration'
-  }]
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 //end of userSchema

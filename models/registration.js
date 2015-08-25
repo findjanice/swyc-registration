@@ -21,9 +21,12 @@ var registrationSchema = new Schema({
     type: Boolean,
     order: false,
   },
+  total: {
+    type: Number
+  },
   payment: {
     type: String,
-    enum: ['credit card', 'cash', 'check', 'no payment'],
+    enum: ['credit card', 'cash', 'check', 'no payment', 'sabbath'],
     required: true
   },
   paid: {
@@ -33,8 +36,12 @@ var registrationSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
-  //end registerSchema
+  },
+  attendee: [{
+      type: Schema.ObjectId,
+      ref: 'User'
+    }]
+    //end registerSchema
 })
 
 module.exports = mongoose.model('Registration', registrationSchema);

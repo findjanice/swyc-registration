@@ -1,45 +1,67 @@
 <link rel="stylesheet" ng-href="{{css}}">
-<div layout="row">
 
-<div flex>
-
+<div class="container" layout="row" layout-align="space-around">
+<div class="contact" flex>
 
 <h2>Contact</h2>
 
 <p>
-  We'd love to hear from you!  If you have any questions regarding GYC Southwest or Southwest Youth Conference this form is the best way to reach us or you may e-mail us at gycsouthwest@gmail.com.
+  We'd love to hear from you!
+  <br>
+  <br>
+  If you have any questions regarding GYC Southwest or Southwest Youth Conference this form is the best way to reach us or you may e-mail us at gycsouthwest@gmail.com.
 </p>
 </div>
 
-<div layout = "column" ng-model="user" flex>
+<div class="email" layout="column" ng-model="user" flex>
+  <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z1">
 
+
+<!--
+<md-content class="md-padding">
+  <form name="contactForm" data-ng-submit="postMail(user)">
+    <md-input-container>
+    <label>Name:</label> <input type="text" data-ng-model="user.name">
+    </md-input-container>
+    <md-input-container>
+    <label>E-mail:</label><input type="text" data-ng-model="user.email">
+    </md-input-container>
+    <md-input-container>
+    <label>Phone:</label> <input type="text" data-ng-model="user.phone">
+    </md-input-container>
+    <md-input-container>
+    <label>Subject:</label> <input type="text" data-ng-model="user.subject">
+  </md-input-container>
+  <md-input-container>
+    <label>Message:</label><textarea ng-model="user.message" columns="1" required="true" md-maxlenght="50"></textarea>
+    </md-input-container>
+    <md-button class="md-raised md-primary" type="submit">Send</md-button>
+  </form>
+  </div>
+  </md-content> -->
   <md-content layout-padding class="autoScroll">
-    <md-input-container class="md-icon-float" >
+    <md-input-container>
       <!-- Use floating label instead of placeholder -->
       <label>Name</label>
-      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
       <input ng-model="user.name" type="text" ng-required="true">
     </md-input-container>
     <md-input-container>
-      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
-      <input ng-model="user.phone" type="text" placeholder="Phone Number">
+      <label>Phone</label>
+      <input ng-model="user.phone" type="text">
     </md-input-container>
     <md-input-container >
+      <label>Email</label>
       <!-- Use floating placeholder instead of label -->
-      <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
-      <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+      <input ng-model="user.email" type="email" ng-required="true">
     </md-input-container>
     <md-input-container>
-      <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
-      <input ng-model="user.subject" type="text" placeholder="Subject" ng-require="true">
+      <label>Subject</label>
+      <input ng-model="user.subject" type="text" ng-require="true">
     </md-input-container>
-
     <md-input-container>
-      <md-icon md-svg-src="" style="display:inline-block;"></md-icon>
-      <input ng-model="user.message" type="text" placeholder="Message" ng-require="true">
+    <label>Message:</label><textarea ng-model="user.message" columns="1" required="true" md-maxlenght="50"></textarea>
     </md-input-container>
         <md-button class="md-raised md-primary" ng-click="postMail(user)">Submit</md-button>
   </md-content>
 </div>
-
 </div>

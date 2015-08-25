@@ -17,6 +17,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'swycCtrl',
       css: 'swyc/swyc.css'
     })
+    .when('/swyc:register', {
+      templateUrl: 'swyc/register/register.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/swyc.css'
+    })
     .when('/contact', {
       templateUrl: 'contact/contact.html',
       controller: 'contactCtrl',
@@ -27,6 +32,8 @@ app.config(function($routeProvider, $mdThemingProvider) {
     })
   $mdThemingProvider.theme('default')
     .primaryPalette('grey');
+  $mdThemingProvider.theme('altTheme')
+    .primaryPalette('blue');
 
   //end config
 })
