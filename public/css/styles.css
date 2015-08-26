@@ -3,16 +3,20 @@
 .body {
   width: 100%;
 }
-.navbar {
+
+/*.navbar {
+  position: fixed;
+  height: 85px;
+  width: 100%;*/
+  /*background: url(http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png) no-repeat;*/
+/*}*/
+.navigation {
   position: fixed;
   height: 85px;
   width: 100%;
-  /*background: url(http://www.gycsouthwest.org/wp-content/uploads/2015/01/cropped-GYC-Logo-Web2@2x.png) no-repeat;*/
-}
-.navigation {
   background-color: rgba(255, 255, 255, 0.8);
 }
-.navbar img {
+.navigation img {
   position: fixed;
   left: 50px
 }
@@ -28,7 +32,7 @@
   border: none;
   outline: none;
 }
-.navbar a {
+.navigation a {
   display: inline-block;
   position: relative;
   padding-bottom: 3px;
@@ -37,7 +41,7 @@
   text-decoration: underline;
   background: #848484
 }*/
-.navbar a:after {
+.navigation a:after {
   content: '';
   display: block;
   margin: auto;
@@ -46,7 +50,7 @@
   background: transparent;
   transition: width .5s ease, background-color .5s ease;
 }
-.navbar a:hover:after {
+.navigation a:hover:after {
   width: 100%;
   background: #848484
 }

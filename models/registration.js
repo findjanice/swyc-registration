@@ -7,22 +7,44 @@ var registrationSchema = new Schema({
     enum: ['Lodge', 'Cabin', 'Tent', 'RV', 'Meals', 'DayPass'],
     required: true
   },
-  cost: {
-    type: Number,
-    required: true,
-    min: 0,
-    required: true
+  room: {
+    type: String,
+    enum: ["Adult - 2 Person Occpancy", "Adult - 3 Person Occupancy",
+      "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
+      "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
+      "Child - 2 Nights/Cabin"
+    ]
   },
+
+  meal: {
+    type: String,
+    enum: ["Adult - 3 Meals", "Adult- 2 Meals", "Adult - 1 Meal",
+      "Child - 3 Meals", "Child - 2 Meals", "Child - 1 Meal"
+    ]
+  },
+  regpass: {
+    type: String,
+    enum: ["Adult - No Meals", "Child - No Meals", "Adult - Meals",
+      "Child - Meals"
+    ]
+  },
+  // cost: {
+  //   type: Number,
+  //   required: true,
+  //   min: 0
+  // },
   roommate: {
     type: 'String',
-    maxlength: 25
+    maxlength: 40
   },
   preorder: {
     type: Boolean,
     order: false,
   },
   total: {
-    type: Number
+    type: Number,
+    required: true,
+    min: 0
   },
   payment: {
     type: String,

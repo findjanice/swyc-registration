@@ -1,4 +1,4 @@
-app.controller('registerCtrl', function($scope, $routeParams, $route, $location) {
+app.controller('swycCtrl', function($scope, $routeParams, $route, $location) {
   $scope.$watch(function() {
     return $route.current.css;
   }, function(value) {
