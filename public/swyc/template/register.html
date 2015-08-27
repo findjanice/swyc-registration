@@ -6,7 +6,7 @@
       <md-tabs md-dynamic-height md-border-bottom>
 
         <!-- This is where the Lodge Tab starts -->
-        <md-tab label="Lodge">
+        <md-tab label="Lodge" ng-click='setRegType("Lodge")'>
           <md-content class="md-padding">
             <div>
               <h1 class="md-display-2">Lodge</h1>
@@ -24,26 +24,26 @@
             </div>
             <br>
             <div>
-              <md-radio-group ng-model="room">
+              <md-radio-group ng-model="register.room">
                 <h2 class="md-title">Room</h2>
-                <md-radio-button value="Adult - 2 Person Occupancy">Adult - 2 Person Occupancy - $202.00</md-radio-button>
-                <md-radio-button value="Adult - 3 Person Occupancy"> Adult - 3 Person Occupancy - $174.00 </md-radio-button>
-                <md-radio-button value="Adult - 4 Person Occupancy">Adult - 4 Person Occupancy - $158.00</md-radio-button>
-                <md-radio-button value="Child">Child (4-12 yrs. old in addition to the Adults in the room)</md-radio-button>
-                <md-radio-button value="Infant">Infant - Toddler (0 - 3 yrs) - Free</md-radio-button>
+                <md-radio-button value="a">Adult - 2 Person Occupancy - $202.00</md-radio-button>
+                <md-radio-button value="b"> Adult - 3 Person Occupancy - $174.00 </md-radio-button>
+                <md-radio-button value="c">Adult - 4 Person Occupancy - $158.00</md-radio-button>
+                <md-radio-button value="d">Child (4-12 yrs. old in addition to the Adults in the room)</md-radio-button>
+                <md-radio-button value="e">Infant - Toddler (0 - 3 yrs) - Free</md-radio-button>
               </md-radio-group>
 
             </div>
             <br>
             <div>
-                    <h2 class="md-title">Roommate</h2>
-                    <br>
-                    <p>
-                      Please type the names of the people you want to share the room with.  If your roommate is not registered, we reserve the right to assign you to another roommate.
-                    </p>
-                    <md-input-container>
-                      <input ng-model="roommate" type="text"  aria-label="text">
-                    </md-input-container>
+              <h2 class="md-title">Roommate</h2>
+              <br>
+              <p>
+                Please type the names of the people you want to share the room with. If your roommate is not registered, we reserve the right to assign you to another roommate.
+              </p>
+              <md-input-container>
+                <input ng-model="register.roommate" type="text" aria-label="text">
+              </md-input-container>
 
             </div>
             <div>
@@ -59,7 +59,7 @@
               <div layout="row">
                 <md-input-container>
                   <label>Type</label>
-                  <md-select ng-model="type">
+                  <md-select ng-model="register.shirttype">
                     <md-optgroup label="Type">
                       <md-option ng-repeat="tshirts in tshirt" value="{{tshirts}}">{{tshirts}}</md-option>
                     </md-optgroup>
@@ -67,7 +67,7 @@
                 </md-input-container>
                 <md-input-container>
                   <label>Size</label>
-                  <md-select ng-model="sizes">
+                  <md-select ng-model="register.sizes">
                     <md-optgroup label="Sizes">
                       <md-option ng-repeat="sizes in size" value={{sizes}}>{{sizes}}</md-option>
                     </md-optgroup>
@@ -75,7 +75,6 @@
                 </md-input-container>
               </div>
             </div>
-
             <br>
             <div>
               <h2 class="md-title">Total</h2>
@@ -84,7 +83,7 @@
               </p>
             </div>
             <br>
-            <md-radio-group ng-model="payment">
+            <md-radio-group ng-model="register.payment">
               <h2 class="md-title">Payment</h2>
               <md-radio-button value="Credit Card">Credit Card</md-radio-button>
               <md-radio-button value="Paypal">Paypal</md-radio-button>
@@ -92,8 +91,10 @@
             </md-radio-group>
           </md-content>
         </md-tab>
-                <!-- This is where the Lodge Tab ends -->
-        <md-tab label="Cabin">
+
+
+        <!-- This is where the Lodge Tab ends -->
+        <md-tab label="Cabin" ng-click='setRegType("Cabin")'>
           <md-content class="md-padding">
             <h1 class="md-display-2">Cabin</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
@@ -144,8 +145,8 @@
         </md-tab>
       </md-tabs>
     </md-content>
-    <md-button class="md-raised md-primary" ng-click="">Register</md-button>
 
+    <md-button class="md-raised md-primary" ng-click="postReg(register)">Register</md-button>
   </div>
 
   <!-- end container -->

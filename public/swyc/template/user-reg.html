@@ -1,0 +1,69 @@
+<link rel="stylesheet" ng-href="{{css}}">
+<div class="container">
+  <h1 class="md-display-2">Attendee Info</h1>
+ <md-content layout-padding>
+   <form name="userForm">
+     <div layout layout-sm="column">
+       <md-input-container flex>
+         <label>First name</label>
+         <input required name="firstname" ng-model="user.firstname" >
+         <div ng-messages="userForm.firstname.$error">
+    <div ng-message="required">This is required.</div>
+
+  </div>
+       </md-input-container>
+       <md-input-container flex>
+         <label>Last Name</label>
+         <input ng-model="user.lastname" ng-required="true">
+       </md-input-container>
+     </div>
+     <md-input-container flex>
+       <label>Address</label>
+       <input ng-model="user.address" ng-required="true">
+     </md-input-container>
+     <div layout layout-sm="column">
+       <md-input-container flex>
+         <label>City</label>
+         <input ng-model="user.city" ng-required="true">
+       </md-input-container>
+       <md-input-container flex>
+         <label>State</label>
+         <input ng-model="user.state" ng-required="true">
+       </md-input-container>
+       <md-input-container flex>
+         <label>Postal Code</label>
+         <input ng-model="user.postalCode" ng-required="true">
+       </md-input-container>
+     </div>
+<div layout layout-sm="column">
+     <md-input-container flex>
+       <label>Email</label>
+       <input ng-model="user.email" type="email" ng-required="true">
+     </md-input-container>
+     <md-input-container flex>
+       <label>Gender</label flex>
+       <md-select ng-model="user.gender">
+         <md-optgroup label="Gender">
+           <md-option ng-repeat="genders in gender" value="{{genders}}" required="true">{{genders}}</md-option>
+         </md-optgroup>
+       </md-select>
+          </md-input-container>
+     <md-input-container flex>
+       <label>Age</label flex>
+       <md-select ng-model="user.age">
+         <md-optgroup label="Age">
+           <md-option ng-repeat="ages in age" value="{{ages}}" required="true">{{ages}}</md-option>
+         </md-optgroup>
+       </md-select>
+     </md-input-container>
+     </div>
+   </form>
+
+   <div layout="row">
+       <md-button class="md-raised md-primary" ng-click="postUser(user);go('/register')">Continue</md-button>
+       </div>
+ </md-content>
+
+
+<!-- container   -->
+</div>

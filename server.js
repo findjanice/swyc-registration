@@ -20,11 +20,11 @@ app.use(cors());
 
 //end points
 //user end point
-app.post('/user', userCtrl.create);
-app.get('/user', userCtrl.read);
+app.post('/api/user', userCtrl.create);
+app.get('/api/user', userCtrl.read);
 //registration end point
-app.post('/registration', registrationCtrl.create);
-app.get('/registration', registrationCtrl.read);
+app.post('/api/registration', registrationCtrl.create);
+app.get('/api/registration', registrationCtrl.read);
 //nodemailer
 
 app.post('/contact', function(req, res) {

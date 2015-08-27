@@ -1,0 +1,152 @@
+<link rel="stylesheet" ng-href="{{css}}">
+<div class="container">
+
+  <div>
+    <md-content class="md-padding">
+      <md-tabs md-dynamic-height md-border-bottom>
+
+        <!-- This is where the Lodge Tab starts -->
+        <md-tab label="Lodge">
+          <md-content class="md-padding">
+            <div>
+              <h1 class="md-display-2">Lodge</h1>
+              <br>
+              <p>Registration includes attendance to the conference, 3 nights stay at the Pine Springs Ranch Lodge and 8 delicious plant based meals.
+              </p>
+              <br>
+              <p>
+                Each lodge room houses up to 6 people. Each room has two queen beds as well as two twin trundles, which are kept under the beds. Each lodge room has a private full bathroom. Bed linens and bath towel sets are provided. Lodge rooms do not have air conditioning;
+                however, fans are available.
+              </p>
+              <br>
+              <p>Unmarried men and women cannot stay in the same lodge room.
+              </p>
+            </div>
+            <br>
+            <div>
+              <md-radio-group ng-model="">
+                <h2 class="md-title">Room</h2>
+                <md-radio-button value="Adult - 2 Person Occupancy">Adult - 2 Person Occupancy - $202.00</md-radio-button>
+                <md-radio-button value="Adult - 3 Person Occupancy"> Adult - 3 Person Occupancy - $174.00 </md-radio-button>
+                <md-radio-button value="Adult - 4 Person Occupancy">Adult - 4 Person Occupancy - $158.00</md-radio-button>
+                <md-radio-button value="Child">Child (4-12 yrs. old in addition to the Adults in the room)</md-radio-button>
+                <md-radio-button value="Infant">Infant - Toddler (0 - 3 yrs) - Free</md-radio-button>
+              </md-radio-group>
+
+            </div>
+            <br>
+            <div>
+                    <h2 class="md-title">Roommate</h2>
+                    <br>
+                    <p>
+                      Please type the names of the people you want to share the room with.  If your roommate is not registered, we reserve the right to assign you to another roommate.
+                    </p>
+                    <md-input-container>
+                      <input ng-model="roommate" type="text"  aria-label="text">
+                    </md-input-container>
+
+            </div>
+            <div>
+              <br>
+              <h2 class="md-title">T-shirt Pre-order</h2>
+              <br>
+              <p>
+                Pre-order your SWYC T-shirt for $12.00 and pick it up on-site during the conference. On site price is $15.00.</p>
+              <br>
+              <p>
+                Select from the options below.
+              </p>
+              <div layout="row">
+                <md-input-container>
+                  <label>Type</label>
+                  <md-select ng-model="type">
+                    <md-optgroup label="Type">
+                      <md-option ng-repeat="tshirts in tshirt" value="{{tshirts}}">{{tshirts}}</md-option>
+                    </md-optgroup>
+                  </md-select>
+                </md-input-container>
+                <md-input-container>
+                  <label>Size</label>
+                  <md-select ng-model="sizes">
+                    <md-optgroup label="Sizes">
+                      <md-option ng-repeat="sizes in size" value={{sizes}}>{{sizes}}</md-option>
+                    </md-optgroup>
+                  </md-select>
+                </md-input-container>
+              </div>
+            </div>
+
+            <br>
+            <div>
+              <h2 class="md-title">Total</h2>
+              <p>
+                Use ng-if
+              </p>
+            </div>
+            <br>
+            <md-radio-group ng-model="payment">
+              <h2 class="md-title">Payment</h2>
+              <md-radio-button value="Credit Card">Credit Card</md-radio-button>
+              <md-radio-button value="Paypal">Paypal</md-radio-button>
+              <md-radio-button value="Check">Check</md-radio-button>
+            </md-radio-group>
+          </md-content>
+        </md-tab>
+                <!-- This is where the Lodge Tab ends -->
+        <md-tab label="Cabin">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Cabin</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
+              felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices
+              ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis,
+              iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at
+              convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus
+              sapien sit amet, tempus sapien.</p>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Tent">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Tent</h1>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="RV">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">RV</h1>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Meals">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Meals Only</h1>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Day Pass">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Day Pass</h1>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Sabbath Only">
+          <md-content class="md-padding">
+            <h1 class="md-display-2">Sabbath Only</h1>
+            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
+              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+    <md-button class="md-raised md-primary" ng-click="">Register</md-button>
+
+  </div>
+
+  <!-- end container -->
+</div>

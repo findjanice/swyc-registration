@@ -79,9 +79,21 @@ app.service('dataService', function($http, $q) {
     location: "Pine Springs Ranch in Mountain, CA"
   }];
 
-  var tshirtType = ['Youth', 'Adult'];
+  var tshirtType = ['', 'Youth', 'Adult'];
 
-  var sizes = ['Small', 'Medium', 'Large', 'Extra Large'];
+  var sizes = ['', 'Small', 'Medium', 'Large', 'Extra Large'];
+
+  var ages = ['0-3 years old', '4-12 years old', '13 and above'];
+
+  var genders = ['M', 'F'];
+
+  this.genders = function() {
+    return genders;
+  };
+
+  this.ages = function() {
+    return ages;
+  };
 
   this.tshirtType = function() {
     return tshirtType;

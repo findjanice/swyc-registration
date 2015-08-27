@@ -19,8 +19,21 @@ var userSchema = new Schema({
     lowercase: true,
     maxlength: 20
   },
-  phone: {
+  address: {
     type: String,
+    lowercase: true
+  },
+  city: {
+    type: String,
+    lowercase: true
+  },
+  state: {
+    type: String,
+    lowercase: true
+  },
+  postalCode: {
+    type: String,
+    lowercase: true
   },
   email: {
     type: String,

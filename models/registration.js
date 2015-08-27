@@ -28,28 +28,31 @@ var registrationSchema = new Schema({
       "Child - Meals"
     ]
   },
-  // cost: {
-  //   type: Number,
-  //   required: true,
-  //   min: 0
-  // },
+  basecost: {
+    type: Number,
+    min: 0
+  },
   roommate: {
     type: 'String',
     maxlength: 40
   },
-  preorder: {
-    type: Boolean,
-    order: false,
+  size: {
+    type: String,
+    enum: ['Small', 'Medium', 'Large', 'Extra Large'],
+  },
+  shirttype: {
+    type: String,
+    enum: ['Youth', 'Adult'],
   },
   total: {
     type: Number,
-    required: true,
     min: 0
   },
   payment: {
     type: String,
-    enum: ['credit card', 'cash', 'check', 'no payment', 'sabbath'],
-    required: true
+    enum: ['Credit Card', 'Cash', 'Check', 'No Payment', 'Sabbath',
+      'Paypal'
+    ]
   },
   paid: {
     type: Boolean,
@@ -60,10 +63,14 @@ var registrationSchema = new Schema({
     default: Date.now
   },
   attendee: [{
-      type: Schema.ObjectId,
-      ref: 'User'
-    }]
-    //end registerSchema
+    type: Schema.ObjectId,
+    ref: 'User'
+  }],
+  checkin: {
+    type: Boolean,
+    default: false
+  }
+  //end registerSchema
 })
 
 module.exports = mongoose.model('Registration', registrationSchema);

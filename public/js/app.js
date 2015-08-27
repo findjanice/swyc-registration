@@ -18,7 +18,22 @@ app.config(function($routeProvider, $mdThemingProvider) {
       css: 'swyc/swyc.css'
     })
     .when('/register', {
-      templateUrl: 'swyc/register/register.html',
+      templateUrl: 'swyc/template/register.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/register.css'
+    })
+    .when('/lodge', {
+      templateUrl: 'swyc/template/lodge.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/register.css'
+    })
+    .when('/cabin', {
+      templateUrl: 'swyc/template/cabin.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/register.css'
+    })
+    .when('/user-reg', {
+      templateUrl: 'swyc/template/user-reg.html',
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })
