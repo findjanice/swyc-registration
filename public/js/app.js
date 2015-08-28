@@ -42,6 +42,15 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'contactCtrl',
       css: 'contact/contact.css'
     })
+    .when('/cc', {
+      templateUrl: 'swyc/template/cc.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/register.css'
+    })
+    .when('/cc/:reserv_id', {
+      templateUrl: 'payment/cc.html',
+      controller: 'cc'
+    })
     .otherwise({
       redirectTo: '/home'
     })
@@ -49,6 +58,6 @@ app.config(function($routeProvider, $mdThemingProvider) {
     .primaryPalette('grey');
   $mdThemingProvider.theme('altTheme')
     .primaryPalette('blue');
-
+  // $window.Stripe.setPublishableKey('pk_test_xI481oAzsUc47D1izTNjWldz');
   //end config
 })

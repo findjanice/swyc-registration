@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
+var stripe = require('stripe')('sk_test_Ns26RNDadYy1USJuPMbjalcS');
 var app = express();
 
 
@@ -11,6 +12,7 @@ var app = express();
 
 var userCtrl = require('./controller/userCtrl');
 var registrationCtrl = require('./controller/registrationCtrl');
+var chargeCtrl = require('./controller/chargeCtrl');
 //middleware
 
 app.use(bodyParser.json());
@@ -25,6 +27,7 @@ app.get('/api/user', userCtrl.read);
 //registration end point
 app.post('/api/registration', registrationCtrl.create);
 app.get('/api/registration', registrationCtrl.read);
+
 //nodemailer
 
 app.post('/contact', function(req, res) {
@@ -61,7 +64,10 @@ app.post('/contact', function(req, res) {
     console.log('Server responded with "%s"', info.response);
   });
 });
+//end nodemailer
+//start stripe
 
+app.post('/charge', chargeCtrl.create);
 
 
 //connections
@@ -75,6 +81,6 @@ mongoose.connection.once('open', function() {
 
 
 
-var server = app.listen(port, function() {
+var server = app.listen(process.env.PORT || port, function() {
   console.log('Server up and running at', server.address().port);
 });

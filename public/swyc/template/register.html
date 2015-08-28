@@ -24,13 +24,15 @@
             </div>
             <br>
             <div>
-              <md-radio-group ng-model="register.room">
-                <h2 class="md-title">Room</h2>
-                <md-radio-button value="a">Adult - 2 Person Occupancy - $202.00</md-radio-button>
+
+              <h2 class="md-title">Room</h2>
+              <md-radio-group ng-model="register.room" ng-change="total=register.room">
+                <md-radio-button ng-repeat="regInfos in regInfo" ng-value="regInfos.value">{{regInfos.room}} - ${{regInfos.basecost}}.00</md-radio-button>
+                <!-- <md-radio-button value="a">Adult - 2 Person Occupancy - $202.00</md-radio-button>
                 <md-radio-button value="b"> Adult - 3 Person Occupancy - $174.00 </md-radio-button>
                 <md-radio-button value="c">Adult - 4 Person Occupancy - $158.00</md-radio-button>
-                <md-radio-button value="d">Child (4-12 yrs. old in addition to the Adults in the room)</md-radio-button>
-                <md-radio-button value="e">Infant - Toddler (0 - 3 yrs) - Free</md-radio-button>
+                <md-radio-button value="d">Child (4-12 yrs. old in addition to the Adults in the room) - $128.00</md-radio-button>
+                <md-radio-button value="e">Infant - Toddler (0 - 3 yrs) - Free</md-radio-button> -->
               </md-radio-group>
 
             </div>
@@ -58,28 +60,30 @@
               </p>
               <div layout="row">
                 <md-input-container>
-                  <label>Type</label>
+                  <label></label>
                   <md-select ng-model="register.shirttype">
-                    <md-optgroup label="Type">
-                      <md-option ng-repeat="tshirts in tshirt" value="{{tshirts}}">{{tshirts}}</md-option>
+                    <md-optgroup label="Scroll down for more sizes">
+                      <md-option ng-repeat="tshirts in tshirt">{{tshirts.type}}</md-option>
                     </md-optgroup>
                   </md-select>
                 </md-input-container>
-                <md-input-container>
+                <!-- <md-input-container>
                   <label>Size</label>
                   <md-select ng-model="register.sizes">
                     <md-optgroup label="Sizes">
                       <md-option ng-repeat="sizes in size" value={{sizes}}>{{sizes}}</md-option>
                     </md-optgroup>
                   </md-select>
-                </md-input-container>
+                </md-input-container> -->
               </div>
             </div>
             <br>
+
             <div>
               <h2 class="md-title">Total</h2>
               <p>
-                Use ng-if
+                $ {{total}}.00
+
               </p>
             </div>
             <br>
@@ -148,6 +152,7 @@
 
     <md-button class="md-raised md-primary" ng-click="postReg(register)">Register</md-button>
   </div>
+
 
   <!-- end container -->
 </div>

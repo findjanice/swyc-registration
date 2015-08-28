@@ -1,5 +1,29 @@
 app.service('dataService', function($http, $q) {
 
+
+  var regInfo = [{
+    room: "Adult - 2 Person Occpancy",
+    basecost: 202,
+    value: 202
+  }, {
+    room: "Adult - 3 Person Occpancy",
+    basecost: 174,
+    value: 174
+  }, {
+    room: "Adult - 4 Person Occpancy",
+    basecost: 158,
+    value: 158
+  }, {
+    room: "Child",
+    basecost: 128,
+    value: 128
+  }, {
+    room: "Infant - Toddler",
+    basecost: 0,
+    value: 0
+  }]
+
+
   var aboutSWYC = [{
     about: "GYC Southwest is a grassroots movement of Seventh-day Adventist youth and young adults.  Our purpose is to support the mission and message of the Seventh-day Adventist Church by encouraging young people in the southwestern United States to be actively involved in the ministry of the Church and equipping them for service to God and man."
   }]
@@ -79,13 +103,46 @@ app.service('dataService', function($http, $q) {
     location: "Pine Springs Ranch in Mountain, CA"
   }];
 
-  var tshirtType = ['', 'Youth', 'Adult'];
 
-  var sizes = ['', 'Small', 'Medium', 'Large', 'Extra Large'];
+
+  var tshirtType = [{
+    type: "None",
+    cost: 0
+  }, {
+    type: "Youth - Small",
+    cost: 12
+  }, {
+    type: "Youth - Medium",
+    cost: 12
+  }, {
+    type: "Youth - Large",
+    cost: 12
+  }, {
+    type: "Youth - Extra Large",
+    cost: 0
+  }, {
+    type: "Adult - Small",
+    cost: 12
+  }, {
+    type: "Adult - Medium",
+    cost: 12
+  }, {
+    type: "Adult - Large",
+    cost: 12
+  }, {
+    type: "Adult - Extra Large",
+    cost: 12
+  }];
+
+  var sizes = ["Select", 'Small', 'Medium', 'Large', 'Extra Large'];
 
   var ages = ['0-3 years old', '4-12 years old', '13 and above'];
 
   var genders = ['M', 'F'];
+
+  this.regInfo = function() {
+    return regInfo;
+  };
 
   this.genders = function() {
     return genders;

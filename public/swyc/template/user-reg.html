@@ -6,11 +6,7 @@
      <div layout layout-sm="column">
        <md-input-container flex>
          <label>First name</label>
-         <input required name="firstname" ng-model="user.firstname" >
-         <div ng-messages="userForm.firstname.$error">
-    <div ng-message="required">This is required.</div>
-
-  </div>
+         <input ng-model="user.firstname" required name="firstname">
        </md-input-container>
        <md-input-container flex>
          <label>Last Name</label>

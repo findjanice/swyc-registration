@@ -7,7 +7,9 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     $scope.css = value;
   });
 
+
   this.state = $location.path();
+
   this.go = function(path) {
     $location.path(path);
   };
@@ -40,6 +42,12 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     $location.path(path);
   };
 
+  $scope.regInfo = function() {
+    $scope.regInfo = dataService.regInfo();
+  };
+
+  $scope.regInfo();
+
   ///setting Registration Type
   $scope.regtype = "Lodge";
 
@@ -64,37 +72,42 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       })
   };
 
-  $scope.total;
 
-  var shirtValue = 0;
+  var shirtValue = 12;
   //this
 
+  var total = 0;
+
+  var cost = 0;
 
   $scope.postReg = function(data) {
 
     for (var prop in data) {
-      if (data[prop] === "a") {
+      if (data[prop] === 202) {
         data.room = "Adult - 2 Person Occpancy";
         data.basecost = 202;
       }
-      if (data[prop] === "b") {
+      if (data[prop] === 174) {
         data.room = "Adult - 3 Person Occupancy";
         data.basecost = 174;
+
       }
-      if (data[prop] === "c") {
+      if (data[prop] === 158) {
         data.room = "Adult - 4 Person Occupancy";
         data.basecost = 158;
+
       }
-      if (data[prop] === "d") {
+      if (data[prop] === 138) {
         data.room = "Child";
         data.basecost = 138;
+
       }
-      if (data[prop] === "e") {
+      if (data[prop] === 0) {
         data.room = "Infant - Toddler";
         data.basecost = 0;
       }
-      if (prop === "shirttype") {
-        shirtValue = 12;
+      if (data[prop] === "None") {
+        shirtValue = 0;
       }
     }
 
@@ -109,8 +122,10 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       .then(function(data) {
         console.log('this is controller promise data', data);
       })
-
   };
+
+  //total
+
 
 
   //end homeCtrl
