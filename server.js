@@ -12,13 +12,19 @@ var app = express();
 
 var userCtrl = require('./controller/userCtrl');
 var registrationCtrl = require('./controller/registrationCtrl');
-var chargeCtrl = require('./controller/chargeCtrl');
+var stripeCtrl = require('./controller/stripeCtrl');
+
 //middleware
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(express.static(__dirname));
 app.use(cors());
 
+
+//stripe
+
+app.post('/api/payment', stripeCtrl.makePayment);
 
 //end points
 //user end point
@@ -65,10 +71,6 @@ app.post('/contact', function(req, res) {
   });
 });
 //end nodemailer
-//start stripe
-
-app.post('/charge', chargeCtrl.create);
-
 
 //connections
 var port = 3000;

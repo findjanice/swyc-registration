@@ -1,6 +1,7 @@
 <link rel="stylesheet" ng-href="{{css}}">
 <div class="container">
 
+
   <div>
     <md-content class="md-padding">
       <md-tabs md-dynamic-height md-border-bottom>
@@ -60,7 +61,7 @@
               </p>
               <div layout="row">
                 <md-input-container>
-                  <label></label>
+                  <label>Sizes</label>
                   <md-select ng-model="register.shirttype">
                     <md-optgroup label="Scroll down for more sizes">
                       <md-option ng-repeat="tshirts in tshirt">{{tshirts.type}}</md-option>
@@ -79,7 +80,7 @@
             </div>
             <br>
 
-            <div>
+            <div ng-model="total">
               <h2 class="md-title">Total</h2>
               <p>
                 $ {{total}}.00
@@ -89,12 +90,14 @@
             <br>
             <md-radio-group ng-model="register.payment">
               <h2 class="md-title">Payment</h2>
+
               <md-radio-button value="Credit Card">Credit Card</md-radio-button>
-              <md-radio-button value="Paypal">Paypal</md-radio-button>
               <md-radio-button value="Check">Check</md-radio-button>
             </md-radio-group>
           </md-content>
         </md-tab>
+
+
 
 
         <!-- This is where the Lodge Tab ends -->
@@ -150,9 +153,10 @@
       </md-tabs>
     </md-content>
 
-    <md-button class="md-raised md-primary" ng-click="postReg(register)">Register</md-button>
+<stripe-transact>
+    <md-button id="paymentButton"class="md-raised md-primary" ng-click="postReg(register)">Register</md-button>
   </div>
-
-
+</stripe-transact>
+  </form>
   <!-- end container -->
 </div>

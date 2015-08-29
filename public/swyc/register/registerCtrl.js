@@ -57,7 +57,11 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('regtype...... ', $scope.regtype);
   }
 
+  $scope.states = function() {
+    $scope.state = dataService.states();
+  }
 
+  $scope.states();
 
   //this post the User data and gets the userID at user.html
 
@@ -124,9 +128,8 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       })
   };
 
+
   //total
-
-
 
   //end homeCtrl
 })

@@ -1,6 +1,5 @@
 var User = require('../models/user');
 
-
 var newUserId;
 
 module.exports = {
