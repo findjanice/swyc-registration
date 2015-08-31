@@ -10,6 +10,13 @@ module.exports = {
     });
   },
 
+  // update: function(req, res) {
+  //   registration.update(req.query, req.body.paid, function(err, result) {
+  //     if (err) res.status(500).json(err);
+  //     else res.json(result);
+  //   });
+  // },
+
   read: function(req, res) {
     console.log('%%%%%%%%%%%%%%%% req.body', req.body)
     Registration
@@ -23,6 +30,7 @@ module.exports = {
         res.send(result);
       });
   }
+
 
   //end module.exports
 }

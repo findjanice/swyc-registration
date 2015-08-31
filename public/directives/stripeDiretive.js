@@ -1,26 +1,38 @@
-app.directive('stripeTransact', function($http, $rootScope) {
+app.directive('stripeTransact', ['regisrationService', function($http,
+  $rootScope, registrationService) {
   return {
     restrict: 'E',
     scope: true,
-    link: function(scope, elem, attrs) {
+    controller: 'registerCtrl'
+    link: function(scope, elem, attrs, registerCtrl) {
+      console.log('this is directive scope', scope);
+
 
       var handler = StripeCheckout.configure({
         key: 'pk_test_xI481oAzsUc47D1izTNjWldz',
         // image: './img/cc.png',
-        token: function(token) {
+        token: function(token, args) {
+          token.amount = scope.total + '00'
+          var $input = $('<input type=hidden name=stripeToken />')
+            .val(
+              token.id);
+          $('form').append($input).submit();
           console.log('this is token,',
             token);
 
-          $http.post('/api/payment', token)
-            .success(function(response) {
-              console.info('response stripe directive: ',
-                response);
-              window.location.reload();
-            })
-            .error(function(err) {
-              throw new Error(err);
-            });
+          // $http.post('/api/payment', token)
+          //   .success(function(response) {
+          //     console.info('response stripe directive: ',
+          //       response);
+          //     // if (response.paid === true)
+          //     // window.location.reload();
+          //   })
+          //   .error(function(err) {
+          //     throw new Error(err);
+          //   });
         }
+
+        //end stripeCheckout configure
       });
 
       $('#paymentButton').on('click', function(e) {
@@ -28,7 +40,7 @@ app.directive('stripeTransact', function($http, $rootScope) {
         handler.open({
           name: 'GYC Southwest',
           description: 'SWYC Registration',
-          amount: 20200
+          amount: scope.total + '00'
         });
         e.preventDefault();
       });
@@ -37,6 +49,8 @@ app.directive('stripeTransact', function($http, $rootScope) {
       $(window).on('popstate', function() {
         handler.close();
       });
+
+      //end link
     }
   }
-})
+}])

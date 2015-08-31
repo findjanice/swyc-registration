@@ -10,9 +10,9 @@ var registrationSchema = new Schema({
   room: {
     type: String,
     enum: ["Adult - 2 Person Occpancy", "Adult - 3 Person Occupancy",
-      "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
-      "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
-      "Child - 2 Nights/Cabin"
+      // "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
+      // "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
+      // "Child - 2 Nights/Cabin"
     ]
   },
 
@@ -36,13 +36,12 @@ var registrationSchema = new Schema({
     type: 'String',
     maxlength: 40
   },
-  size: {
-    type: String,
-    enum: ['Small', 'Medium', 'Large', 'Extra Large'],
-  },
   shirttype: {
     type: String,
-    enum: ['Youth', 'Adult'],
+    // enum: ['Youth - Small', 'Youth - Medium', 'Youth - Large',
+    //   'Youth - Extra Large', 'Youth - Small', 'Adult - Medium',
+    //   'Adult - Large', 'Adult - Adult Extra Large',
+    // ],
   },
   total: {
     type: Number,

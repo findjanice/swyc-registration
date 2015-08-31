@@ -119,7 +119,7 @@ app.service('dataService', function($http, $q) {
     cost: 12
   }, {
     type: "Youth - Extra Large",
-    cost: 0
+    cost: 12
   }, {
     type: "Adult - Small",
     cost: 12

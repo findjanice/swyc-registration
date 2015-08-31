@@ -29,6 +29,21 @@ app.service('registrationService', function($http, $q) {
     })
   };
 
+  this.postStripe = function(data) {
+    return $http({
+        url: 'http://localhost:3000/api/payment'
+        method: 'POST',
+        data: data
+      }).success(function(response) {
+        console.info('response stripe directive: ',
+          response);
+      })
+      .error(function(err) {
+        throw new Error(err);
+      });
+  };
+
+
 
   //end service
 })

@@ -1,1 +1,77 @@
+/* ============================================================
+  PRIMARY STRUCTURE
+============================================================ */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+/* ============================================================
+  SECTIONS
+============================================================ */
 
+section.module.parallax {
+  height: 550px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+section.module.parallax-1 {
+  background-image: url("../img/IMG_2804.jpg");
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center space-between;
+}
+
+.icon-alone {
+  display: inline-block; /* Fix for clickability issue in WebKit */
+  font-size: 80px;
+  padding: 5px;
+  margin: 10px;
+  line-height: 20px;
+  font-weight: bold;
+  text-align: center;
+    color: rgb(26,35,126);
+}
+
+.screen-reader-text { /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+p {
+  line-height: 130%;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+h3 {
+  text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4);
+  color: rgb(255,255,255);
+}
+
+.spaces {
+  padding: 20px;
+}
+/*.icon-users {
+  color: rgb(51,0,153);
+}
+
+.icon-calendar {
+  color: rgb(0,102,51);
+}
+
+.icon-headphones {
+  color: rgb(153,0,51);
+}*/

@@ -65,7 +65,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
 
   //this post the User data and gets the userID at user.html
 
-
   $scope.postUser = function(data) {
     console.log('this is in controller', data);
     registrationService.postUser(data)
@@ -77,59 +76,64 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
   };
 
 
-  var shirtValue = 12;
-  //this
-
-  var total = 0;
-
-  var cost = 0;
-
   $scope.postReg = function(data) {
+      console.log('this is tshirt', data.shirttype)
+      for (var prop in data) {
+        if (data[prop] === 202) {
+          data.room = "Adult - 2 Person Occpancy";
+          data.basecost = 202;
+        } else if (data[prop] === 174) {
+          data.room = "Adult - 3 Person Occupancy";
+          data.basecost = 174;
 
-    for (var prop in data) {
-      if (data[prop] === 202) {
-        data.room = "Adult - 2 Person Occpancy";
-        data.basecost = 202;
-      }
-      if (data[prop] === 174) {
-        data.room = "Adult - 3 Person Occupancy";
-        data.basecost = 174;
+        } else if (data[prop] === 158) {
+          data.room = "Adult - 4 Person Occupancy";
+          data.basecost = 158;
 
-      }
-      if (data[prop] === 158) {
-        data.room = "Adult - 4 Person Occupancy";
-        data.basecost = 158;
+        } else if (data[prop] === 138) {
+          data.room = "Child";
+          data.basecost = 138;
 
+        } else if (data[prop] === 0) {
+          data.room = "Infant - Toddler";
+          data.basecost = 0;
+        }
       }
-      if (data[prop] === 138) {
-        data.room = "Child";
-        data.basecost = 138;
 
-      }
-      if (data[prop] === 0) {
-        data.room = "Infant - Toddler";
-        data.basecost = 0;
-      }
-      if (data[prop] === "None") {
-        shirtValue = 0;
-      }
+      data.total = $scope.total;
+      console.log('this is data.total', data.total);
+      console.log(data);
+      data.regtype = $scope.regtype;
+      data.attendee = userId;
+      console.log('this is in controller', data);
+      registrationService.postReg(data)
+        .then(function(data) {
+          console.log('this is controller promise data', data);
+        })
     }
+    //end of postReg
 
-    console.log(shirtValue);
-    data.total = shirtValue + data.basecost;
-    console.log('this is data.total', data.total);
-    console.log(data);
-    data.regtype = $scope.regtype;
-    data.attendee = userId;
-    console.log('this is in controller', data);
-    registrationService.postReg(data)
-      .then(function(data) {
-        console.log('this is controller promise data', data);
-      })
-  };
+  //
+
+  $scope.getTotal = function() {
+    if ($scope.register.shirttype) $scope.shirtprice = 12
+    if ($scope.register.shirttype === "None") $scope.shirtprice = 0
+    if (!$scope.register.shirttype) $scope.shirtprice = 0
+    console.log('this is shirtprice', $scope.shirtprice);
+    $scope.total = $scope.shirtprice + $scope.register.room
+    console.log('this is total', $scope.total);
+  }
 
 
-  //total
+  // $scope.submit = function(data) {
+  //   for (var prop in data) {
+  //     if (data[prop] === "Credit Card") {
+  //       //use stripe
+  //     }
+  //   } else {
+  //     $location.path("/check_confirm")
+  //   }
+  // }
 
   //end homeCtrl
 })
