@@ -1,10 +1,8 @@
-app.directive('stripeTransact', ['regisrationService', function($http,
-  $rootScope, registrationService) {
+app.directive('stripeTransact', function($http, $rootScope) {
   return {
     restrict: 'E',
     scope: true,
-    controller: 'registerCtrl'
-    link: function(scope, elem, attrs, registerCtrl) {
+    link: function(scope, elem, attrs) {
       console.log('this is directive scope', scope);
 
 
@@ -13,23 +11,24 @@ app.directive('stripeTransact', ['regisrationService', function($http,
         // image: './img/cc.png',
         token: function(token, args) {
           token.amount = scope.total + '00'
-          var $input = $('<input type=hidden name=stripeToken />')
-            .val(
-              token.id);
+          var $input = $('<input type=hidden name=stripeToken />').val(
+            token.id);
           $('form').append($input).submit();
           console.log('this is token,',
             token);
 
-          // $http.post('/api/payment', token)
-          //   .success(function(response) {
-          //     console.info('response stripe directive: ',
-          //       response);
-          //     // if (response.paid === true)
-          //     // window.location.reload();
-          //   })
-          //   .error(function(err) {
-          //     throw new Error(err);
-          //   });
+          $http.post('/api/payment', token)
+            .success(function(response) {
+              console.info('response stripe directive: ',
+                response);
+              if (response.paid === true) {
+                scope.regCCPost();
+              }
+              // window.location.reload();
+            })
+            .error(function(err) {
+              throw new Error(err);
+            });
         }
 
         //end stripeCheckout configure
@@ -53,4 +52,4 @@ app.directive('stripeTransact', ['regisrationService', function($http,
       //end link
     }
   }
-}])
+})

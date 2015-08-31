@@ -31,7 +31,7 @@ app.service('registrationService', function($http, $q) {
 
   this.postStripe = function(data) {
     return $http({
-        url: 'http://localhost:3000/api/payment'
+        url: 'http://localhost:3000/api/payment',
         method: 'POST',
         data: data
       }).success(function(response) {
@@ -43,7 +43,9 @@ app.service('registrationService', function($http, $q) {
       });
   };
 
-
+  this.test = function() {
+    console.log('this is test');
+  }
 
   //end service
 })

@@ -153,7 +153,7 @@
       </div>
 <!-- stripe diretive -->
 <stripe-transact  ng-if="register.payment === 'Credit Card'">
-    <md-button id="paymentButton" class="md-raised md-primary" ng-click="postReg(register)">Register</md-button>
+    <md-button id="paymentButton" class="md-raised md-primary" ng-click="postRegCc(register)">Register</md-button>
 </stripe-transact>
     <md-button class="md-raised md-primary" ng-if="register.payment === 'Check'" ng-click="postReg(register)">Register</md-button>
 

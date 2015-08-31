@@ -9,11 +9,11 @@ var registrationSchema = new Schema({
   },
   room: {
     type: String,
-    enum: ["Adult - 2 Person Occpancy", "Adult - 3 Person Occupancy",
-      // "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
-      // "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
-      // "Child - 2 Nights/Cabin"
-    ]
+    // enum: ["Adult - 2 Person Occpancy", "Adult - 3 Person Occupancy",
+    //   // "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
+    //   // "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
+    //   // "Child - 2 Nights/Cabin"
+    // ]
   },
 
   meal: {

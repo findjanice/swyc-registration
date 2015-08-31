@@ -77,7 +77,38 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
 
 
   $scope.postReg = function(data) {
-      console.log('this is tshirt', data.shirttype)
+      for (var prop in data) {
+        if (data[prop] === 202) {
+          data.room = "Adult - 2 Person Occpancy";
+          data.basecost = 202;
+        } else if (data[prop] === 174) {
+          data.room = "Adult - 3 Person Occupancy";
+          data.basecost = 174;
+
+        } else if (data[prop] === 158) {
+          data.room = "Adult - 4 Person Occupancy";
+          data.basecost = 158;
+
+        } else if (data[prop] === 138) {
+          data.room = "Child";
+          data.basecost = 138;
+
+        } else if (data[prop] === 0) {
+          data.room = "Infant - Toddler";
+          data.basecost = 0;
+        }
+      }
+
+      data.total = $scope.total;
+      data.regtype = $scope.regtype;
+      data.attendee = userId;
+      registrationService.postReg(data);
+    }
+    //end of postReg
+
+  $scope.attendeeCC = {};
+
+  $scope.postRegCc = function(data) {
       for (var prop in data) {
         if (data[prop] === 202) {
           data.room = "Adult - 2 Person Occpancy";
@@ -106,12 +137,14 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       data.regtype = $scope.regtype;
       data.attendee = userId;
       console.log('this is in controller', data);
-      registrationService.postReg(data)
-        .then(function(data) {
-          console.log('this is controller promise data', data);
-        })
+      data.paid = true;
+      $scope.attendeeCC = data;
     }
     //end of postReg
+
+  $scope.regCCPost = function() {
+    registrationService.postReg($scope.attendeeCC);
+  }
 
   //
 
