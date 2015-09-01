@@ -52,12 +52,27 @@ app.config(function($routeProvider, $mdThemingProvider) {
     .when('/admin-checkinview', {
       templateUrl: 'admin/template/admin-checkinview.html',
       controller: 'adminCtrl',
-      css: 'admin/admin.css'
+      css: 'admin/admin.css',
+      resolve: {
+        personId: function(adminService) {
+          return adminService.getRegInfo();
+        }
+      }
     })
-    .when('/admin-checkinview/:personId', {
-      templateUrl: 'admin/template/person.html',
+    .when('/admin-regview', {
+      templateUrl: 'admin/template/admin-regview.html',
       controller: 'adminCtrl',
       css: 'admin/admin.css'
+    })
+    .when('/admin-checkinview/:person', {
+      templateUrl: 'admin/template/person.html',
+      controller: 'adminCtrl',
+      css: 'admin/admin.css',
+      resolve: {
+        personId: function(adminService) {
+          return adminService.getRegInfo();
+        }
+      }
     })
     .otherwise({
       redirectTo: '/home'

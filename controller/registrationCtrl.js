@@ -24,6 +24,19 @@ module.exports = {
         res.send(result);
       });
   },
+  read: function(req, res) {
+    console.log('%%%%%%%%%%%%%%%% req.body', req.body)
+    Registration
+      .findOne({
+        _id: req._id
+      })
+      // Registration.find(req.query)
+      .exec(function(err, result) {
+        console.log(res.attendee)
+        if (err) return res.status(500).send(err);
+        res.send(result);
+      });
+  },
   update: function(req, res) {
     Registration.findByIdAndUpdate(req.params.id, req.body, function(err,
       result) {

@@ -2,10 +2,14 @@ app.service('adminService', function($http, $q) {
 
   this.getRegInfo = function() {
     var deferred = $q.defer();
-    return $http({
+    $http({
       url: 'http://localhost:3000/api/registration',
       method: 'GET'
+    }).then(function(data) {
+      console.log('service', data)
+      deferred.resolve(data.data)
     })
+    return deferred.promise;
   };
 
   this.checkIn = function(data) {
@@ -20,8 +24,9 @@ app.service('adminService', function($http, $q) {
       deferred.resolve(data.data)
     })
     return deferred.promise;
-
   }
+
+
 
   //end service
 })

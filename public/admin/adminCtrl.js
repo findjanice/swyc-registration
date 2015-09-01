@@ -1,6 +1,5 @@
 app.controller('adminCtrl', function($scope, $filter, $routeParams,
-  $route, $location,
-  adminService) {
+  $route, $location, adminService, personId) {
 
   $scope.$watch(function() {
     return $route.current.css;
@@ -8,15 +7,17 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
     $scope.css = value;
   });
 
+  $scope.person = personId;
+
   $scope.regInfo = [];
 
   $scope.getRegInfo = function() {
     adminService.getRegInfo().then(function(response) {
-      // console.log('this is response', response.data);
-      $scope.regInfo = response.data;
-      $scope.userId = response.data._id;
+      console.log('this is response', response);
+      $scope.regInfo = response;
+      $scope.userId = response._id;
       $scope.regInfoCollection = [].concat($scope.regInfo);
-      console.log($scope.regInfoCollection);
+      console.log('this is collection ', $scope.regInfoCollection);
     });
   };
 
@@ -35,20 +36,24 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
     })
   }
 
+  $scope.getTotalbyReg = function() {
+    adminService.getRegInfo().then(function(response) {
+      for (var i in response.data) {
+        $scope.total += response.data[i].total;
+        if (response.data.hasOwnProperty(i)) $scope.getTotalRegCount++;
+      }
+      console.log($scope.total);
+    })
+  }
 
   $scope.getTotalByReg; //shows how much $ for each regtype
   ; //shows how many registrations received
   $scope.getTotalRegCountByType; //shows how many registration per type
-
+  $scope.getTotalRegCountByRoom; //shows how many registration per room
 
 
   $scope.getTotal();
 
-  // $scope.getPerson = function() {
-  //   adminService.getRegInfo().then(function(response) {
-  //
-  //   })
-  // }
 
   $scope.checkIn = function(data) {
     console.log(data);
