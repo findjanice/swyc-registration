@@ -37,10 +37,10 @@
   position: relative;
   padding-bottom: 3px;
 }
-/*.navbar a:active {
-  text-decoration: underline;
-  background: #848484
-}*/
+.navigation a:active {
+  text-decoration: none;
+  /*background: #848484*/
+}
 .navigation a:after {
   content: '';
   display: block;
@@ -49,6 +49,10 @@
   width: 0px;
   background: transparent;
   transition: width .5s ease, background-color .5s ease;
+}
+.navigation a:visited {
+  color:#000 !important;
+
 }
 .navigation a:hover:after {
   width: 100%;

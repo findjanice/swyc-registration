@@ -3,6 +3,7 @@
 ============================================================ */
 body {
     background-color: #EFEBE9;
+    
 }
 
 .container {
@@ -35,4 +36,7 @@ p {
 
 md-content {
   background-color: #EFEBE9;
+}
+.contact {
+  padding: 20px;
 }

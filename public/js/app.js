@@ -1,4 +1,6 @@
-var app = angular.module('swyc', ['ngMaterial', 'ngRoute', 'ngMessages']);
+var app = angular.module('swyc', ['ngMaterial', 'ngRoute', 'ngMessages',
+  'smart-table'
+]);
 
 app.config(function($routeProvider, $mdThemingProvider) {
   $routeProvider
@@ -47,9 +49,10 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })
-    .when('/cc/:reserv_id', {
-      templateUrl: 'payment/cc.html',
-      controller: 'cc'
+    .when('/admin-checkinview', {
+      templateUrl: 'admin/template/admin-checkinview.html',
+      controller: 'adminCtrl',
+      css: 'admin/admin.css'
     })
     .otherwise({
       redirectTo: '/home'
@@ -58,6 +61,6 @@ app.config(function($routeProvider, $mdThemingProvider) {
     .primaryPalette('grey');
   $mdThemingProvider.theme('altTheme')
     .primaryPalette('blue');
-  // $window.Stripe.setPublishableKey('pk_test_xI481oAzsUc47D1izTNjWldz');
+
   //end config
 })

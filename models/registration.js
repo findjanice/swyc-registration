@@ -4,29 +4,17 @@ var Schema = mongoose.Schema;
 var registrationSchema = new Schema({
   regtype: {
     type: String,
-    enum: ['Lodge', 'Cabin', 'Tent', 'RV', 'Meals', 'DayPass'],
     required: true
   },
   room: {
-    type: String,
-    // enum: ["Adult - 2 Person Occpancy", "Adult - 3 Person Occupancy",
-    //   // "Adult - 4 Person Occupancy", "Child", "Infant - Toddler",
-    //   // "Adult - Cabin", "Child - Cabin", "Adult - 2 Nights/Cabin",
-    //   // "Child - 2 Nights/Cabin"
-    // ]
+    type: String
   },
 
   meal: {
-    type: String,
-    enum: ["Adult - 3 Meals", "Adult- 2 Meals", "Adult - 1 Meal",
-      "Child - 3 Meals", "Child - 2 Meals", "Child - 1 Meal"
-    ]
+    type: String
   },
   regpass: {
-    type: String,
-    enum: ["Adult - No Meals", "Child - No Meals", "Adult - Meals",
-      "Child - Meals"
-    ]
+    type: String
   },
   basecost: {
     type: Number,
@@ -37,11 +25,7 @@ var registrationSchema = new Schema({
     maxlength: 40
   },
   shirttype: {
-    type: String,
-    // enum: ['Youth - Small', 'Youth - Medium', 'Youth - Large',
-    //   'Youth - Extra Large', 'Youth - Small', 'Adult - Medium',
-    //   'Adult - Large', 'Adult - Adult Extra Large',
-    // ],
+    type: String
   },
   total: {
     type: Number,

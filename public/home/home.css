@@ -41,7 +41,7 @@ section.module.parallax-1 {
   line-height: 20px;
   font-weight: bold;
   text-align: center;
-    color: rgb(26,35,126);
+    /*color: rgb(86,86,86);*/
 }
 
 .screen-reader-text { /* Reusable, toolbox kind of class */
@@ -64,7 +64,7 @@ h3 {
 .spaces {
   padding: 20px;
 }
-/*.icon-users {
+.icon-users {
   color: rgb(51,0,153);
 }
 
@@ -74,4 +74,4 @@ h3 {
 
 .icon-headphones {
   color: rgb(153,0,51);
-}*/
+}
