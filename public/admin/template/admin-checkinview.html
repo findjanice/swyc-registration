@@ -1,0 +1,49 @@
+<link rel="stylesheet" ng-href="{{css}}">
+
+<div class="container" layout="row">
+
+<table st-table="regInfo" st-safe-src="displayInfo" class="table table-striped">
+	<thead>
+	<tr>
+		<th st-sort="regtype">Type</th>
+		<th st-sort="firstname">First Name</th>
+		<th st-sort="lastname">Last Name</th>
+		<th st-sort="checkin">Check-In</th>
+		<th st-sort="paid">Paid</th>
+    <th>Update</th>
+	</tr>
+
+  <tr>
+     <th>
+         <input st-search="regtype" placeholder="search for reg type" class="input-sm form-control" type="search"/>
+     </th>
+     <th>
+         <input st-search="firstname" placeholder="search for firstname" class="input-sm form-control" type="search"/>
+     </th>
+     <th>
+         <input st-search="lastname" placeholder="search for lastname" class="input-sm form-control" type="search"/>
+     </th>
+     <th>
+         <input st-search="checkin" placeholder="true or false" class="input-sm form-control" type="search"/>
+     </th>
+     <th>
+         <input st-search="paid" placeholder="true or false" class="input-sm form-control" type="search"/>
+     </th>
+
+ </tr>
+	</thead>
+	<tbody ng-repeat="getInfo in regInfo">
+	<tr>
+    <tr ng-repeat = "attendee in getInfo.attendee">
+		<td>{{getInfo.regtype}}</td>
+		<td>{{attendee.firstname}}</td>
+		<td>{{attendee.lastname}}</td>
+		<td><button ng-click="checkIn(getInfo)">{{getInfo.checkin}}</button></td>
+		<td>{{getInfo.paid}}</td>
+    	<td><button ng-click="{{getInfo._id}}">Edit</button></td>
+	</tr>
+</tr>
+	</tbody>
+</table>
+
+</div>

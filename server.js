@@ -33,7 +33,7 @@ app.get('/api/user', userCtrl.read);
 //registration end point
 app.post('/api/registration', registrationCtrl.create);
 app.get('/api/registration', registrationCtrl.read);
-app.put('/api/registration', registrationCtrl.update);
+app.put('/api/registration/:id', registrationCtrl.update);
 // app.delete('api/registration', registrationCtrl.delete);
 //nodemailer
 

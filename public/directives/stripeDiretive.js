@@ -5,7 +5,6 @@ app.directive('stripeTransact', function($http, $rootScope) {
     link: function(scope, elem, attrs) {
       console.log('this is directive scope', scope);
 
-
       var handler = StripeCheckout.configure({
         key: 'pk_test_xI481oAzsUc47D1izTNjWldz',
         // image: './img/cc.png',
