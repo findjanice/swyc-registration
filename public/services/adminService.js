@@ -14,7 +14,8 @@ app.service('adminService', function($http, $q) {
     $http({
       url: 'http://localhost:3000/api/registration/' + data._id,
       method: 'PUT',
-      data: data
+      data: data,
+      cache: 'true'
     }).then(function(data) {
       deferred.resolve(data.data)
     })

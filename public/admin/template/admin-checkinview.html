@@ -2,12 +2,12 @@
 
 <div class="container" layout="row">
 
-<table st-table="regInfo" st-safe-src="displayInfo" class="table table-striped">
+<table st-table="regInfo" st-safe-src="regInfoCollection" class="table table-striped">
 	<thead>
 	<tr>
 		<th st-sort="regtype">Type</th>
-		<th st-sort="firstname">First Name</th>
-		<th st-sort="lastname">Last Name</th>
+		<th st-sort="attendee.firstname">First Name</th>
+		<th st-sort="attendee.lastname">Last Name</th>
 		<th st-sort="checkin">Check-In</th>
 		<th st-sort="paid">Paid</th>
     <th>Update</th>
@@ -40,7 +40,7 @@
 		<td>{{attendee.lastname}}</td>
 		<td><button ng-click="checkIn(getInfo)">{{getInfo.checkin}}</button></td>
 		<td>{{getInfo.paid}}</td>
-    	<td><button ng-click="{{getInfo._id}}">Edit</button></td>
+    	<td>  <a href="#/admin-checkinview/{{getInfo._id}}">Edit</a></td>
 	</tr>
 </tr>
 	</tbody>

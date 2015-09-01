@@ -54,6 +54,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'adminCtrl',
       css: 'admin/admin.css'
     })
+    .when('/admin-checkinview/:personId', {
+      templateUrl: 'admin/template/person.html',
+      controller: 'adminCtrl',
+      css: 'admin/admin.css'
+    })
     .otherwise({
       redirectTo: '/home'
     })
