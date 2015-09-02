@@ -66,14 +66,7 @@
                     </md-optgroup>
                   </md-select>
                 </md-input-container>
-                <!-- <md-input-container>
-                  <label>Size</label>
-                  <md-select ng-model="register.sizes">
-                    <md-optgroup label="Sizes">
-                      <md-option ng-repeat="sizes in size" value={{sizes}}>{{sizes}}</md-option>
-                    </md-optgroup>
-                  </md-select>
-                </md-input-container> -->
+
               </div>
             </div>
             <br>
@@ -101,18 +94,84 @@
         <!-- This is where the Lodge Tab ends -->
         <md-tab label="Cabin" ng-click='setRegType("Cabin")'>
           <md-content class="md-padding">
-            <h1 class="md-display-2">Cabin</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
-              felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices
-              ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis,
-              iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at
-              convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus
-              sapien sit amet, tempus sapien.</p>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
-              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+            <div>
+              <h1 class="md-display-2">Cabin</h1>
+
+              <p>Registration includes attendance to the conference, 3 nights stay at the Pine Springs Ranch cabin and 8 delicious plant based meals. </p>
+<br>
+<p>The cabins are carpeted, heated and is furnished with 4 sets of bunks and one queen bed.</p>
+<br>
+<p>There are two separate villages for men and women, North and South respectively. Each village has a centralized bathhouse, complete with sinks, toilets, and private showers. </p>
+<br>
+<p>Married couples cannot stay together in the same cabin</p>
+
+    </div>
+            <br>
+            <div>
+
+              <h2 class="md-title">Room</h2>
+              <!-- <md-radio-group ng-model="register.room" ng-change="total=register.room"> -->
+                  <md-radio-group ng-model="register.room" ng-change="getTotal()">
+                <md-radio-button ng-repeat="regInfos in regInfoCabin" ng-value="regInfos.value">{{regInfos.room}} - ${{regInfos.basecost}}.00</md-radio-button>
+
+              </md-radio-group>
+
+            </div>
+            <br>
+            <div>
+              <h2 class="md-title">Roommate</h2>
+              <br>
+              <p>
+                Please type the names of the people you want to share the room with. If your roommate is not registered, we reserve the right to assign you to another roommate.
+              </p>
+              <md-input-container>
+                <input ng-model="register.roommate" type="text" aria-label="text">
+              </md-input-container>
+
+            </div>
+            <div>
+              <br>
+              <h2 class="md-title">T-shirt Pre-order</h2>
+              <br>
+              <p>
+                Pre-order your SWYC T-shirt for $12.00 and pick it up on-site during the conference. On site price is $15.00.</p>
+              <br>
+              <p>
+                Select from the options below.
+              </p>
+              <div layout="row">
+                <md-input-container>
+                  <label>Sizes</label>
+                    <md-select ng-model="register.shirttype" ng-change="getTotal()">
+
+                    <md-optgroup label="Scroll down for more sizes">
+                      <md-option ng-repeat="tshirts in tshirt">{{tshirts.type}}</md-option>
+                    </md-optgroup>
+                  </md-select>
+                </md-input-container>
+
+              </div>
+            </div>
+            <br>
+
+            <div ng-model="total">
+              <h2 class="md-title">Total</h2>
+              <p>
+                $ {{total}}.00
+
+              </p>
+            </div>
+            <br>
+            <md-radio-group ng-model="register.payment">
+              <h2 class="md-title">Payment</h2>
+
+              <md-radio-button value="Credit Card">Credit Card</md-radio-button>
+              <md-radio-button value="Check">Check</md-radio-button>
+            </md-radio-group>
           </md-content>
         </md-tab>
+
+        <!-- This is where Cabin Tab ends -->
         <md-tab label="Tent">
           <md-content class="md-padding">
             <h1 class="md-display-2">Tent</h1>

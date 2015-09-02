@@ -15,13 +15,31 @@ app.service('dataService', function($http, $q) {
     value: 158
   }, {
     room: "Child",
-    basecost: 128,
-    value: 128
+    basecost: 99,
+    value: 99
   }, {
     room: "Infant - Toddler",
     basecost: 0,
     value: 0
-  }]
+  }];
+
+  var regInfoCabin = [{
+    room: "Adult - Full Conference",
+    basecost: 126,
+    value: 128
+  }, {
+    room: "Child - Full Conference",
+    basecost: 92,
+    value: 92
+  }, {
+    room: "Infant - Toddler",
+    basecost: 0,
+    value: 0
+  }];
+
+  this.regInfoCabin = function() {
+    return regInfoCabin;
+  }
 
 
   var aboutSWYC = [{

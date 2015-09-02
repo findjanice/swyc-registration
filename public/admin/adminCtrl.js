@@ -10,7 +10,11 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
     $scope.css = value;
   });
 
-  // $scope.person = personId;
+  this.state = $location.path();
+
+  this.go = function(path) {
+    $location.path(path);
+  };
 
   $scope.regInfo = [];
 
@@ -22,13 +26,18 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
     })
   }
 
+  //edit items
+  $scope.updateUser = function(data) {
+    adminService.updateUser(data).then(function(response) {
+      $location.path("/admin-checkinview");
+    })
+  }
+
   $scope.getRegInfo = function() {
     adminService.getRegInfo().then(function(response) {
-      console.log('this is response', response);
       $scope.regInfo = response;
       $scope.userId = response._id;
       $scope.regInfoCollection = [].concat($scope.regInfo);
-      console.log('this is collection ', $scope.regInfoCollection);
     });
   };
 

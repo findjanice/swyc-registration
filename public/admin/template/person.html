@@ -1,5 +1,53 @@
 <link rel="stylesheet" ng-href="{{css}}">
 
-Hello@ {{personId}}
-
-{{personData}}
+<div class="tablecontainer">
+  <div layout="column">
+	<h2 class="md-title">Attendee Info</h2>
+<br>
+<form ng-submit="updateUser(personData)">
+  <md-input-container>
+      <label>Registration ID:</label>
+      <input ng-model="personData._id" disabled>
+    </md-input-container>
+    <md-input-container>
+        <label>Attendee ID:</label>
+        <input ng-model="personData.attendee" disabled>
+      </md-input-container>
+  <md-content>
+    <md-input-container>
+  <label>Accomodations:</label>
+  <input type="text" ng-model="personData.regtype" ng-required/>
+</md-input-container>
+<md-input-container>
+<label>Registration Type:</label>
+<input type="text" ng-model="personData.room" ng-required/>
+</md-input-container>
+    <md-input-container>
+  <label>Check-In:</label>
+  <input type="text" ng-model="personData.checkin"  ng-required/>
+</md-input-container>
+    <md-input-container>
+  <label>Payment:</label>
+  <input type="text" ng-model="personData.payment"  ng-required/>
+</md-input-container>
+  <md-input-container>
+  <label>T-shirt:</label>
+  <input type="text" ng-model="personData.shirttype"  ng-required/>
+</md-input-container>
+  <md-input-container>
+  <label>Registration Amount:</label>
+  <input type="text" ng-model="personData.total"  ng-required/>
+</md-input-container>
+  <md-input-container>
+  <label>Paid:</label>
+  <input type="text" ng-model="personData.paid"  ng-required/>
+</md-input-container>
+<md-input-container>
+<label>Notes:</label>
+<input type="text" ng-model="personData.notes" ng-required/>
+</md-input-container>
+</form>
+<button class="btn" type="submit">Save</button>
+<button class="btn" ng-click="go('/admin-checkinview')">Cancel</button>
+</md-content>
+</div>

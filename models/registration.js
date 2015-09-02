@@ -52,6 +52,9 @@ var registrationSchema = new Schema({
   checkin: {
     type: Boolean,
     default: false
+  },
+  notes: {
+    type: String
   }
   //end registerSchema
 })

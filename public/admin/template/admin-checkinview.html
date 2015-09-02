@@ -1,11 +1,12 @@
 <link rel="stylesheet" ng-href="{{css}}">
-
-<div class="container" layout="row">
+<!-- <div class="tablecontainer" layout="row"> -->
+	<h2 class="md-title">Attendee Check-In</h2>
 
 <table st-table="regInfo" st-safe-src="regInfoCollection" class="table table-striped">
 	<thead>
 	<tr>
 		<th st-sort="regtype">Type</th>
+		<th st-sort="room">Room</th>
 		<th st-sort="attendee.firstname">First Name</th>
 		<th st-sort="attendee.lastname">Last Name</th>
 		<th st-sort="checkin">Check-In</th>
@@ -17,6 +18,9 @@
      <th>
          <input st-search="regtype" placeholder="search for reg type" class="input-sm form-control" type="search"/>
      </th>
+		 <th>
+				 <input st-search="room" placeholder="search for room" class="input-sm form-control" type="search"/>
+		 </th>
      <th>
          <input st-search="firstname" placeholder="search for firstname" class="input-sm form-control" type="search"/>
      </th>
@@ -36,6 +40,7 @@
 	<tr>
     <tr ng-repeat = "attendee in getInfo.attendee">
 		<td>{{getInfo.regtype}}</td>
+			<td>{{getInfo.room}}</td>
 		<td>{{attendee.firstname}}</td>
 		<td>{{attendee.lastname}}</td>
 		<td><button ng-click="checkIn(getInfo)">{{getInfo.checkin}}</button></td>
@@ -45,5 +50,4 @@
 </tr>
 	</tbody>
 </table>
-
-</div>
+<!-- </div> -->

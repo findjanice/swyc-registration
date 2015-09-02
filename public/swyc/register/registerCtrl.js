@@ -48,6 +48,12 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
 
   $scope.regInfo();
 
+  $scope.regInfoCabin = function() {
+    $scope.regInfoCabin = dataService.regInfoCabin();
+  };
+
+  $scope.regInfoCabin();
+
   ///setting Registration Type
   $scope.regtype = "Lodge";
 
@@ -89,13 +95,19 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
           data.room = "Adult - 4 Person Occupancy";
           data.basecost = 158;
 
-        } else if (data[prop] === 138) {
+        } else if (data[prop] === 99) {
           data.room = "Child";
-          data.basecost = 138;
+          data.basecost = 99;
 
         } else if (data[prop] === 0) {
           data.room = "Infant - Toddler";
           data.basecost = 0;
+        } else if (data[prop] === 128) {
+          data.room = "Adult - Full Conference";
+          data.basecost = 126;
+        } else if (data[prop] === 92) {
+          data.room = "Child - Full Conference";
+          data.basecost = 92;
         }
       }
 
