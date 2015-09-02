@@ -1,7 +1,9 @@
 <link rel="stylesheet" ng-href="{{css}}">
-<!-- <div class="tablecontainer" layout="row"> -->
-	<h2 class="md-title">Attendee Check-In</h2>
-
+<div class="tablecontainer">
+		<h2 class="md-title">Attendee Check-In</h2>
+		<br>
+</div>
+<div class="tablecontainer" layout="row">
 <table st-table="regInfo" st-safe-src="regInfoCollection" class="table table-striped">
 	<thead>
 	<tr>
@@ -22,13 +24,13 @@
 				 <input st-search="room" placeholder="search for room" class="input-sm form-control" type="search"/>
 		 </th>
      <th>
-         <input st-search="firstname" placeholder="search for firstname" class="input-sm form-control" type="search"/>
+         <input st-search="attendee.firstname" placeholder="search for firstname" class="input-sm form-control" type="search"/>
      </th>
      <th>
-         <input st-search="lastname" placeholder="search for lastname" class="input-sm form-control" type="search"/>
+         <input st-search="attendee.lastname" placeholder="search for lastname" class="input-sm form-control" type="search"/>
      </th>
      <th>
-         <input st-search="checkin" placeholder="true or false" class="input-sm form-control" type="search"/>
+         <input st-search="attendee.checkin" placeholder="true or false" class="input-sm form-control" type="search"/>
      </th>
      <th>
          <input st-search="paid" placeholder="true or false" class="input-sm form-control" type="search"/>

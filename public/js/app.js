@@ -16,7 +16,7 @@ app.config(function($routeProvider, $mdThemingProvider) {
     })
     .when('/swyc', {
       templateUrl: 'swyc/swyc.html',
-      controller: 'swycCtrl',
+      controller: 'registerCtrl',
       css: 'swyc/swyc.css'
     })
     .when('/register', {
@@ -48,6 +48,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       templateUrl: 'swyc/template/cc.html',
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
+    })
+    .when('/admin', {
+      templateUrl: 'admin/template/admin-login.html',
+      controller: 'adminCtrl',
+      css: 'admin/admin.css'
     })
     .when('/admin-checkinview', {
       templateUrl: 'admin/template/admin-checkinview.html',

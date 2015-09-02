@@ -37,7 +37,7 @@ app.get('/api/registration', registrationCtrl.read);
 app.get('/api/registration/:id', registrationCtrl.readId);
 
 app.put('/api/registration/:id', registrationCtrl.update);
-// app.delete('api/registration', registrationCtrl.delete);
+app.delete('api/registration/:id', registrationCtrl.delete);
 //nodemailer
 
 app.post('/contact', function(req, res) {

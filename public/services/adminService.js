@@ -35,6 +35,18 @@ app.service('adminService', function($http, $q) {
     return deferred.promise;
   }
 
+  this.deleteUser = function(data) {
+    var deferred = $q.defer();
+    $http({
+      url: 'http://localhost:3000/api/registration/' + data._id,
+      method: 'DELETE',
+      data: data
+    }).then(function(response) {
+      deferred.resolve(response.data)
+    })
+    return deferred.promise;
+  }
+
 
   this.checkIn = function(data) {
     var deferred = $q.defer();

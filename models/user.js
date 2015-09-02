@@ -9,14 +9,11 @@ var userSchema = new Schema({
   },
   firstname: {
     type: String,
-    required: true,
-    lowercase: true,
     maxlength: 20
   },
   lastname: {
     type: String,
     required: true,
-    lowercase: true,
     maxlength: 20
   },
   address: {
