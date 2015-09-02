@@ -68,11 +68,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       templateUrl: 'admin/template/person.html',
       controller: 'adminCtrl',
       css: 'admin/admin.css',
-      resolve: {
-        personId: function(adminService) {
-          return adminService.getRegInfo();
-        }
-      }
+      // resolve: {
+      //   personId: function(adminService, $route) {
+      //     return adminService.getRegbyId();
+      //   }
+      // }
     })
     .otherwise({
       redirectTo: '/home'

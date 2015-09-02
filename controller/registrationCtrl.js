@@ -14,9 +14,7 @@ module.exports = {
   read: function(req, res) {
     console.log('%%%%%%%%%%%%%%%% req.body', req.body)
     Registration
-      .find({
-        regtype: 'Lodge'
-      })
+      .find()
       .populate('attendee')
       // Registration.find(req.query)
       .exec(function(err, result) {
@@ -24,15 +22,14 @@ module.exports = {
         res.send(result);
       });
   },
-  read: function(req, res) {
-    console.log('%%%%%%%%%%%%%%%% req.body', req.body)
+  readId: function(req, res) {
+    console.log('readId', req.params)
     Registration
       .findOne({
-        _id: req._id
+        _id: req.params.id
       })
       // Registration.find(req.query)
       .exec(function(err, result) {
-        console.log(res.attendee)
         if (err) return res.status(500).send(err);
         res.send(result);
       });

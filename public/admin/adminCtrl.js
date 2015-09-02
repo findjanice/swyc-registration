@@ -1,5 +1,8 @@
 app.controller('adminCtrl', function($scope, $filter, $routeParams,
-  $route, $location, adminService, personId) {
+  $route, $location, adminService) {
+
+  $scope.personId = $routeParams.person;
+
 
   $scope.$watch(function() {
     return $route.current.css;
@@ -7,9 +10,17 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
     $scope.css = value;
   });
 
-  $scope.person = personId;
+  // $scope.person = personId;
 
   $scope.regInfo = [];
+
+  $scope.checkIn = function(data) {
+    console.log(data);
+    data.checkin = true;
+    adminService.checkIn(data).then(function(response) {
+      console.log('repsonse says', response);
+    })
+  }
 
   $scope.getRegInfo = function() {
     adminService.getRegInfo().then(function(response) {
@@ -23,14 +34,26 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.getRegInfo();
 
+  $scope.getRegbyId = function() {
+    adminService.getRegbyId($scope.personId).then(function(response) {
+      console.log('this is the response', response);
+      $scope.personData = response;
+
+    })
+  }
+
+  $scope.getRegbyId();
+
+  //this is for admin-regView and dashboard
+
   $scope.total = 0;
   $scope.getTotalRegCount = 0;
 
   $scope.getTotal = function() {
     adminService.getRegInfo().then(function(response) {
-      for (var i in response.data) {
-        $scope.total += response.data[i].total;
-        if (response.data.hasOwnProperty(i)) $scope.getTotalRegCount++;
+      for (var i in response) {
+        $scope.total += response[i].total;
+        if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
       console.log($scope.total);
     })
@@ -38,9 +61,10 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.getTotalbyReg = function() {
     adminService.getRegInfo().then(function(response) {
-      for (var i in response.data) {
-        $scope.total += response.data[i].total;
-        if (response.data.hasOwnProperty(i)) $scope.getTotalRegCount++;
+      console.log('this is response', response)
+      for (var i in response) {
+        $scope.total += response[i].total;
+        if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
       console.log($scope.total);
     })
@@ -54,14 +78,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.getTotal();
 
-
-  $scope.checkIn = function(data) {
-    console.log(data);
-    data.checkin = true;
-    adminService.checkIn(data).then(function(response) {
-      console.log('repsonse says', response);
-    })
-  }
 
 
   //end of controller
