@@ -1,108 +1,147 @@
 <link rel="stylesheet" ng-href="{{css}}">
-
 <div class="container">
-
-
-  <div>
-    <md-content class="md-padding">
-      <md-tabs md-dynamic-height md-border-bottom>
-
-        <!-- This is where the Lodge Tab starts -->
-        <md-tab label="Registration Info">
-          <md-content class="md-padding">
-            <div>
-              <p>
-                Total Registered Attendees:  {{getTotalRegCount}}</p>
-                <br>
-                Total Registered by Lodging Type:
-
-                <div ng-repeat="reg in lodgeCabin">
-                  Lodge: {{reg.Lodge}}
-                  <br>
-                  Cabin: {{reg.Cabin}}
-                </div>
-
-                <br>
-                <div>
-                  Total Registration by Room Type:
-                  <div ng-repeat="room in rooms">
-                  Cabin:
-                  <div>Adult = {{room['Adult - Full Conference']}}</div>{{room}}
-                  <div>Child = {{room['Child']}}</div>
-                  </div>
-                </div>
-
-
-                T-shirt Order:
-                <div ng-repeat="shirt in tshirt">
-                  <br>
-                  <p>Youth</p>
-                  <div>Small: {{shirt['Youth - Small']}}</div>
-                  <div>Medium: {{shirt['Youth - Medium']}}</div>
-                  <div>Large: {{shirt['Youth - Large']}}</div>
-                  <div>Extra Large: {{shirt['Youth - Extra Large']}}</div>
-                  <br>
-
-                  <p>Adult</p>
-                  <div>Small: {{shirt['Adult - Small']}}</div>
-                  <div>Medium: {{shirt['Adult - Medium']}}</div>
-                  <div>Large: {{shirt['Adult - Large']}}</div>
-                  <div>Extra Large: {{shirt['Adult - Extra Large']}}</div>
-
-                  </div>
-<br>
-                  On Site Check-In:
-                  <div ng-repeat="here in checkin">
-                    Checked In: {{here.true}}
-                    <br>
-                    Not Checked-In: {{here.false}}
-
-                  </div>
-
-
-
-                </div>
-
-
-            </div>
-
-        </md-tab>
-
-
-
-
-        <!-- This is where the Lodge Tab ends -->
-        <md-tab label="Finance">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Cabin</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
-              felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices
-              ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis,
-              iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at
-              convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus
-              sapien sit amet, tempus sapien.</p>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante
-              eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
-        </md-tab>
-
-        <!-- This is where the Finance Tab ends -->
-
-        <!-- end container -->
-  </div>
-
-  <div class="container" layout="row" layout-align="space-around">
-    <div class="widget" flex>
-      <!-- <br>
-this is total ${{total}}.00
-<br>
-this is total regCoung {{getTotalRegCount}}
-<br> -->
-
-        <!-- <div ng-repeat="reg in TotalRegType">
-
-          <p>
-            {{reg.regtype}} - $ {{reg.total}}
-          </p>
-       -->
+  <h1>Registration Information</h1>
+  <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+    <md-grid-tile class="gray"
+        md-rowspan="1" md-colspan="2" md-colspan-sm="1">
+        <h1>${{total}}.00</h1>
+      <md-grid-tile-header>
+        <h3>Registration Income</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="yellow"
+        md-rowspan="1" md-colspan="2" md-colspan-sm="1">
+        <h1>{{getTotalRegCount}}</h1>
+      <md-grid-tile-header>
+        <h3>Registered Attendees</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile class="blue" ng-repeat="here in checkin">
+      <h1>{{here.true}}</h1>
+      <md-grid-tile-header>
+        <h3>Checked-In</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="red" ng-repeat="here in checkin">
+      <h1>{{here.false}}</h1>
+      <md-grid-tile-header>
+        <h3>Not Checked-In</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="blue" ng-repeat="pay in paid">
+      <h1>{{pay.true}}</h1>
+      <md-grid-tile-header>
+        <h3>Paid</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="red" ng-repeat="pay in paid">
+      <h1>{{pay.false}}</h1>
+      <md-grid-tile-header>
+        <h3>Not Paid</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="blue"
+        md-rowspan="1" md-colspan="2" div ng-repeat="reg in lodgeCabin">
+       <h1>Lodge: {{reg.Lodge}} |</h1>
+        <h1>Cabin:{{reg.Cabin}}</h1>
+      <md-grid-tile-header>
+        <h3>Registration by Type</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="gray"
+        md-rowspan="2" md-colspan="2" md-colspan-sm="1"  ng-repeat="room in rooms">
+        <div class="roomtype">
+        <h2>Cabin</h2>
+        <div><p>Adult = {{room['Adult - Full Conference']}}</p></div>
+        <div><p>Child = {{room['Child - Full Conference']}}</p></div>
+        <br>
+        <h2>Lodge</h2>
+        <div><p>Adult - 4 Person Occupancy = {{room['Adult - 4 Person Occupancy']}}</p></div>
+        <div>
+      <p>
+        Adult - 3 Person Occupancy = {{room['Adult - 3 Person Occupancy']}}
+      </p>
+        </div>
+        <div><p>Child = {{room['Child']}}</p></div>
+        </div>
+      <md-grid-tile-header>
+        <h3>Registration by Room Type</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="green"
+        md-rowspan="1" md-colspan="1" ng-repeat="shirt in tshirt">
+        <div>
+          <div>
+            <p>
+              Youth - {{shirt['Youth - Small']}}
+            </p>
+          </div>
+          <div>
+            <p>
+             Adult - {{shirt['Adult - Small']}}
+            </p>
+          </div>
+        </div>
+      <md-grid-tile-header>
+        <h3>T-shirt | Small</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="green"
+        md-rowspan="1" md-colspan="1" ng-repeat="shirt in tshirt">
+        <div>
+          <div>
+            <p>
+              Youth - {{shirt['Youth - Medium']}}
+            </p>
+          </div>
+          <div>
+            <p>
+             Adult - {{shirt['Adult - Medium']}}
+            </p>
+          </div>
+        </div>
+      <md-grid-tile-header>
+        <h3>T-shirt | Medium</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="green"
+        md-rowspan="1" md-colspan="1" ng-repeat="shirt in tshirt">
+        <div>
+          <div>
+            <p>
+              Youth - {{shirt['Youth - Large']}}
+            </p>
+          </div>
+          <div>
+            <p>
+             Adult - {{shirt['Adult - Large']}}
+            </p>
+          </div>
+        </div>
+      <md-grid-tile-header>
+        <h3>T-shirt | Large</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+    <md-grid-tile class="green"
+        md-rowspan="1" md-colspan="1" ng-repeat="shirt in tshirt">
+        <div>
+          <div>
+            <p>
+              Youth - {{shirt['Youth - Extra Large']}}
+            </p>
+          </div>
+          <div>
+            <p>
+             Adult - {{shirt['Youth - Extra Large']}}
+            </p>
+          </div>
+        </div>
+      <md-grid-tile-header>
+        <h3>T-shirt | Extra-Large</h3>
+      </md-grid-tile-header>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

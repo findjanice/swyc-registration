@@ -73,7 +73,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
       for (var i in response) {
         if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
-      // console.log($scope.total);
     })
   }
 
@@ -146,8 +145,10 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
         var tshirt = _.pick(regStatArr, 'shirttype');
         var checkIn = _.pick(regStatArr, 'checkin');
         var rooms = _.pick(regStatArr, 'room');
+        var paid = _.pick(regStatArr, 'paid');
         console.log('this is rooms', rooms);
 
+        $scope.paid = paid;
         $scope.checkin = checkIn;
         $scope.tshirt = tshirt;
         $scope.rooms = rooms;
@@ -158,12 +159,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
   }
 
   $scope.regStatTotal();
-
-  //shows how much $ for each regtype
-  //shows how many registrations received
-  $scope.getTotalRegCountByType; //shows how many registration per type
-  $scope.getTotalRegCountByRoom; //shows how many registration per room
-
 
   $scope.getTotal();
 
