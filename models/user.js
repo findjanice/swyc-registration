@@ -12,7 +12,7 @@ var userSchema = new Schema({
     unique: true,
     required: true
   },
-  username: {
+  password: {
     type: String,
     required: true
   },
@@ -60,9 +60,8 @@ var userSchema = new Schema({
   }
 });
 
-UserSchema.pre('save', function(callback) {
+userSchema.pre('save', function(callback) {
   var user = this;
-
 
   if (!user.isModified('password')) return callback();
 
@@ -77,6 +76,13 @@ UserSchema.pre('save', function(callback) {
     });
   });
 });
+
+userSchema.methods.verifyPassword = function(password, cb) {
+  bcrypt.compare(password, this.password, function(err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
+};
 
 //end of userSchema
 

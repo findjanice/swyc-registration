@@ -5,14 +5,16 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var stripe = require('stripe')('sk_test_Ns26RNDadYy1USJuPMbjalcS');
+var passport = require('passport');
 var app = express();
-
+var router = express.Router();
 
 //controllers
 
 var userCtrl = require('./controller/userCtrl');
 var registrationCtrl = require('./controller/registrationCtrl');
 var stripeCtrl = require('./controller/stripeCtrl');
+var authCtrl = require('./controller/authCtrl')
 
 //middleware
 
@@ -20,6 +22,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(express.static(__dirname));
 app.use(cors());
+app.use(passport.initialize());
 
 
 //stripe
@@ -27,17 +30,20 @@ app.use(cors());
 app.post('/api/payment', stripeCtrl.makePayment);
 
 //end points
-//user end point
-app.post('/api/user', userCtrl.create);
-app.get('/api/user', userCtrl.read);
+router.route('/api/user')
+  .post(authCtrl.isAuthenticated, userCtrl.create)
+  .get(authCtrl.isAuthenticated, userCtrl.read);
 //registration end point
-app.post('/api/registration', registrationCtrl.create);
-app.get('/api/registration', registrationCtrl.read);
+router.route('/api/registration')
+  .post(authCtrl.isAuthenticated, registrationCtrl.create)
+  .get(authCtrl.isAuthenticated, registrationCtrl.read);
 
-app.get('/api/registration/:id', registrationCtrl.readId);
+router.route('/api/registration/:id')
+  .get(authCtrl.isAuthenticated, registrationCtrl.readId)
+  .put(authCtrl.isAuthenticated, registrationCtrl.update)
+  .delete(authCtrl.isAuthenticated, registrationCtrl.delete);
 
-app.put('/api/registration/:id', registrationCtrl.update);
-app.delete('api/registration/:id', registrationCtrl.delete);
+
 //nodemailer
 
 app.post('/contact', function(req, res) {

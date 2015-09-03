@@ -75,9 +75,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('this is in controller', data);
     registrationService.postUser(data)
       .then(function(data) {
-        console.log(data);
         userId = data.data._id;
-        console.log('this is user id', userId);
       })
   };
 
@@ -110,7 +108,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
           data.basecost = 92;
         }
       }
-
       data.total = $scope.total;
       data.regtype = $scope.regtype;
       data.attendee = userId;
@@ -173,16 +170,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('this is total', $scope.total);
   }
 
-
-  // $scope.submit = function(data) {
-  //   for (var prop in data) {
-  //     if (data[prop] === "Credit Card") {
-  //       //use stripe
-  //     }
-  //   } else {
-  //     $location.path("/check_confirm")
-  //   }
-  // }
 
   //end homeCtrl
 })

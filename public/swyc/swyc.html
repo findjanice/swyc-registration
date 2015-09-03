@@ -77,7 +77,29 @@
 <!-- This is where the Pricing Tab ends -->
 <!-- This is where the Pricing Tab ends -->
 <md-tab label="REGISTER">
-  <md-content class="md-padding">
+
+  <br/>
+  <p>
+  Log-In or register as Guest.
+
+  <br>
+  </p>
+  <h5 class="md-title">Log-In</h5>
+  <div class = "loginwrapper">
+
+  <md-content layout-padding class="autoScroll">
+    <md-input-container class="md-icon-float" >
+      <!-- Use floating label instead of placeholder -->
+      <label>User Name</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user.username" type="text">
+    </md-input-container>
+    <md-input-container md-no-float>
+      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+      <input ng-model="user.password" type="text" placeholder="Password">
+    </md-input-container>
+  </div>
+  <!-- <md-content class="md-padding">
 
     <h4 class="md-title">Attendee Info</h4>
    <md-content layout-padding>
@@ -139,7 +161,7 @@
          </div>
 
     </md-content>
-</md-tab>
+</md-tab> -->
 <!-- This is where the Pricing Tab ends -->
   <!-- end container -->
 </div>
