@@ -23,7 +23,6 @@ app.directive('stripeTransact', function($http, $rootScope) {
               if (response.paid === true) {
                 scope.regCCPost();
               }
-              // window.location.reload();
             })
             .error(function(err) {
               throw new Error(err);

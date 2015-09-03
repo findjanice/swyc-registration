@@ -46,6 +46,7 @@
 }
 .icon-heart:before {
 	content: "\e604";
+	color: red;
 }
 .icon-crying:before {
 	content: "\e60a";

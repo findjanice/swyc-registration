@@ -7,6 +7,15 @@ var userSchema = new Schema({
     enum: ['administrator', 'attendee'],
     required: true
   },
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true
+  },
   firstname: {
     type: String,
     maxlength: 20
@@ -49,6 +58,24 @@ var userSchema = new Schema({
     type: Date,
     default: Date.now
   }
+});
+
+UserSchema.pre('save', function(callback) {
+  var user = this;
+
+
+  if (!user.isModified('password')) return callback();
+
+
+  bcrypt.genSalt(5, function(err, salt) {
+    if (err) return callback(err);
+
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
+      if (err) return callback(err);
+      user.password = hash;
+      callback();
+    });
+  });
 });
 
 //end of userSchema

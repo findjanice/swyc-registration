@@ -144,3 +144,6 @@ background: #f5f5f5;
 .roomtype p {
   font-size: 15px;
 }
+.md-title {
+  line-height: 30%;
+}

@@ -11,3 +11,6 @@
 md-radio-button {
   outline: none;
 }
+.pagewidth{
+  min-height:  360px;
+}

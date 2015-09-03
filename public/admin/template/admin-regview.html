@@ -54,18 +54,23 @@
     <md-grid-tile class="gray"
         md-rowspan="2" md-colspan="2" md-colspan-sm="1"  ng-repeat="room in rooms">
         <div class="roomtype">
-        <h2>Cabin</h2>
+        <br>
+        <h1 class="md-title">Cabin</h1>
         <div><p>Adult = {{room['Adult - Full Conference']}}</p></div>
         <div><p>Child = {{room['Child - Full Conference']}}</p></div>
-        <br>
-        <h2>Lodge</h2>
-        <div><p>Adult - 4 Person Occupancy = {{room['Adult - 4 Person Occupancy']}}</p></div>
+        <h1 class="md-title">Lodge</h1>
+        <p>
+          Adult - 2 Person Occupancy = {{room['Adult - 2 Person Occpancy']}}
+        </p>
         <div>
       <p>
         Adult - 3 Person Occupancy = {{room['Adult - 3 Person Occupancy']}}
       </p>
         </div>
+        <div><p>Adult - 4 Person Occupancy = {{room['Adult - 4 Person Occupancy']}}</p></div>
+
         <div><p>Child = {{room['Child']}}</p></div>
+          <div><p>Infant - Todder = {{room['Infant - Toddler']}}</p></div>
         </div>
       <md-grid-tile-header>
         <h3>Registration by Room Type</h3>
@@ -76,12 +81,12 @@
         <div>
           <div>
             <p>
-              Youth - {{shirt['Youth - Small']}}
+              Youth = {{shirt['Youth - Small']}}
             </p>
           </div>
           <div>
             <p>
-             Adult - {{shirt['Adult - Small']}}
+             Adult= {{shirt['Adult - Small']}}
             </p>
           </div>
         </div>
@@ -94,12 +99,12 @@
         <div>
           <div>
             <p>
-              Youth - {{shirt['Youth - Medium']}}
+              Youth = {{shirt['Youth - Medium']}}
             </p>
           </div>
           <div>
             <p>
-             Adult - {{shirt['Adult - Medium']}}
+             Adult = {{shirt['Adult - Medium']}}
             </p>
           </div>
         </div>
@@ -112,12 +117,12 @@
         <div>
           <div>
             <p>
-              Youth - {{shirt['Youth - Large']}}
+              Youth = {{shirt['Youth - Large']}}
             </p>
           </div>
           <div>
             <p>
-             Adult - {{shirt['Adult - Large']}}
+             Adult = {{shirt['Adult - Large']}}
             </p>
           </div>
         </div>
@@ -130,12 +135,12 @@
         <div>
           <div>
             <p>
-              Youth - {{shirt['Youth - Extra Large']}}
+              Youth = {{shirt['Youth - Extra Large']}}
             </p>
           </div>
           <div>
             <p>
-             Adult - {{shirt['Youth - Extra Large']}}
+             Adult = {{shirt['Youth - Extra Large']}}
             </p>
           </div>
         </div>

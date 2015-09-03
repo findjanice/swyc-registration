@@ -3,6 +3,7 @@ var app = angular.module('swyc', ['ngMaterial', 'ngRoute', 'ngMessages',
 ]);
 
 app.config(function($routeProvider, $mdThemingProvider) {
+  new WOW().init();
   $routeProvider
     .when('/home', {
       templateUrl: 'home/home.html',
@@ -24,13 +25,13 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })
-    .when('/lodge', {
-      templateUrl: 'swyc/template/lodge.html',
+    .when('/check-confirm', {
+      templateUrl: 'swyc/template/confirm-check.html',
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })
-    .when('/cabin', {
-      templateUrl: 'swyc/template/cabin.html',
+    .when('/cc-confirm', {
+      templateUrl: 'swyc/template/confirm-cc.html',
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })

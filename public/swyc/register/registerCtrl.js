@@ -114,7 +114,9 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       data.total = $scope.total;
       data.regtype = $scope.regtype;
       data.attendee = userId;
-      registrationService.postReg(data);
+      registrationService.postReg(data).then(function(response) {
+        $location.path("/check-confirm");
+      });
     }
     //end of postReg
 
@@ -155,7 +157,9 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     //end of postReg
 
   $scope.regCCPost = function() {
-    registrationService.postReg($scope.attendeeCC);
+    registrationService.postReg($scope.attendeeCC).then(function(response) {
+      $location.path("/cc-confirm");
+    });
   }
 
   //
