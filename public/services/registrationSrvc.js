@@ -1,4 +1,4 @@
-  app.service('registrationService', function($http, $q) {
+  app.service('registrationService', function($http, $q, $location) {
 
 
     var registerArr = [];
@@ -29,9 +29,19 @@
       })
     };
 
-    this.test = function() {
-      console.log('this is test');
-    }
+    this.login = function(data) {
+      var deferred = $q.defer();
+      console.log('this is login', data);
+      $http({
+        url: 'http://localhost:3000/login',
+        method: 'POST',
+        data: data
+      }).then(function(data) {
+        // $location.path("/register");
+        deferred.resolve(data.data)
+      })
+      return deferred.promise;
+    };
 
     //end service
   })

@@ -77,17 +77,21 @@
 <!-- This is where the Pricing Tab ends -->
 <!-- This is where the Pricing Tab ends -->
 <md-tab label="REGISTER">
+<div class="centertxt">
+
 
   <br/>
+  <h2 class="md-title">SWYC Registration</h2>
   <p>
-  Log-In or register as Guest.
+  Log-In, Create an Account or register as Guest
 
   <br>
   </p>
-  <h5 class="md-title">Log-In</h5>
-  <div class = "loginwrapper">
-
-  <md-content layout-padding class="autoScroll">
+</div>
+  <div class = "loginwrapper centered">
+    <br>
+<h5 class="md-title">Log-In</h5>
+  <md-content layout-padding class="autoScroll" ng-model="user">
     <md-input-container class="md-icon-float" >
       <!-- Use floating label instead of placeholder -->
       <label>User Name</label>
@@ -96,8 +100,9 @@
     </md-input-container>
     <md-input-container md-no-float>
       <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
-      <input ng-model="user.password" type="text" placeholder="Password">
+      <input ng-model="user.password" type="password" placeholder="Password">
     </md-input-container>
+    <md-button class=" raised btn1" ng-click="login(user)">Log In</md-button><md-button class="btn1" ng-click="go('/newuser-reg')">Create Account</md-button><md-button class="btn1" ng-click="go('/user-reg')">Guest</md-button>
   </div>
   <!-- <md-content class="md-padding">
 

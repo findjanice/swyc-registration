@@ -79,6 +79,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       })
   };
 
+  //post registration for guest
 
   $scope.postReg = function(data) {
       for (var prop in data) {
@@ -110,7 +111,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       }
       data.total = $scope.total;
       data.regtype = $scope.regtype;
-      data.attendee = userId;
       registrationService.postReg(data).then(function(response) {
         $location.path("/check-confirm");
       });
@@ -141,13 +141,9 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
           data.basecost = 0;
         }
       }
-
       data.total = $scope.total;
-      console.log('this is data.total', data.total);
-      console.log(data);
       data.regtype = $scope.regtype;
       data.attendee = userId;
-      console.log('this is in controller', data);
       data.paid = true;
       $scope.attendeeCC = data;
     }
@@ -170,6 +166,11 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('this is total', $scope.total);
   }
 
+  $scope.login = function(data) {
+    registrationService.login(data).then(function(response) {
+      console.log('this is login response', response);
+    })
+  }
 
   //end homeCtrl
 })

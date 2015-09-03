@@ -3,6 +3,7 @@ var Registration = require('../models/registration');
 
 module.exports = {
   create: function(req, res) {
+    console.log('this is registrationCtrl', req.body);
     var newRegistration = new Registration(req.body);
     newRegistration.save(function(err, result) {
       if (err) return res.status(500).send(err);

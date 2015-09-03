@@ -33,3 +33,22 @@ blockquote h3:after {
     bottom: -0.6em;
     right: 0;
 }
+
+.loginwrapper {
+  width: 400px;
+}
+
+.centered {
+  /*position: fixed;*/
+  top: 50%;
+  left: 50%;
+  /*margin-top: -10px;*/
+  margin-left: 200px;
+}
+
+.centertxt {
+	text-align:center;
+}
+.btn1 {
+ // your custom overrides here
+}
