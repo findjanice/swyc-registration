@@ -112,7 +112,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.getRegNumbyType = function() {
     adminService.getRegInfo().then(function(response) {
-      console.log('this is response', response)
       for (var i in response) {
         if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
@@ -125,7 +124,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
       var regStatArr = {};
       for (var i = 0; i < response.length; i++) {
         for (var prop in response[i]) {
-          // console.log('this is', b[prop]);
+
           if (!regStatArr[prop]) {
             regStatArr[prop] = {};
           }
@@ -136,9 +135,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
           }
         }
 
-        // (regStatArr, 'paid', 'attendee', '__v',
-        //   '_id', 'basecost', 'checkin', 'date', 'payment', 'room',
-        //   'roommate', 'shirttype', 'total');
         $scope.lodgeCabin = lodgeCabin;
 
         var lodgeCabin = _.pick(regStatArr, 'regtype');

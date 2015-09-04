@@ -37,7 +37,7 @@
         method: 'POST',
         data: data
       }).then(function(data) {
-        // $location.path("/register");
+        console.log('this is regServiceData', data);
         deferred.resolve(data.data)
       })
       return deferred.promise;

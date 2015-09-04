@@ -1,13 +1,30 @@
 <link rel="stylesheet" ng-href="{{css}}">
-    <div class="wrap">
-		<!-- <div class="avatar">
-      <img src="./img/cc.png">
-		</div>
-		<input type="text" placeholder="username" required>
-		<div class="bar">
-			<i></i>
-		</div>
-		<input type="password" placeholder="password" required>
-		<a href="" class="forgot_link">forgot ?</a>
-		<button>Sign in</button> -->
-	</div>
+<div class="admincontainer">
+<div class="container">
+  <div class="centertxt">
+    <div class="icon-alone">
+      <span class="icon-user"></span>
+    </div>
+    <br/>
+    <h2 class="md-title">Administrator Log-In</h2>
+
+  </div>
+    <div class = "loginwrapper centered">
+      <br>
+  <br>
+    <md-content layout-padding class="autoScroll" ng-model="user">
+      <md-input-container class="md-icon-float" >
+        <!-- Use floating label instead of placeholder -->
+        <label>User Name</label>
+        <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+        <input ng-model="user.username" type="text">
+      </md-input-container>
+      <md-input-container class="md-icon-float">
+          <label>Password</label>
+        <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+        <input ng-model="user.password" type="password">
+      </md-input-container>
+      <md-button class=" raised btn1" ng-click="adminlogin(user)">Log In</md-button>
+    </div>
+</div>
+</div>

@@ -80,6 +80,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'adminCtrl',
       css: 'admin/admin.css',
     })
+    .when('/admin-dashboard', {
+      templateUrl: 'admin/template/admin-dashboard.html',
+      controller: 'adminCtrl',
+      css: 'admin/admin.css'
+    })
     .otherwise({
       redirectTo: '/home'
     })
