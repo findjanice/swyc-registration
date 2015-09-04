@@ -26,6 +26,8 @@ var User = require('./models/user')
 //passport
 passport.use(new LocalStrategy(
   function(username, password, callback) {
+    console.log('this is username', username);
+    console.log('this is password', password);
     User.findOne({
       username: username
     }, function(err, user) {
@@ -105,24 +107,22 @@ router.route('/api/registration/:id')
 
 
 app.post('/login', function(req, res, next) {
-  passport.authenticate('local',
-
-    function(err, user, info) {
-      console.log('this is login', user);
+  passport.authenticate('local', function(err, user, info) {
+    console.log('this is login', user);
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.redirect(302, '/#/swyc');
+    }
+    req.logIn(user, function(err) {
+      console.log('is logIn', user);
       if (err) {
         return next(err);
       }
-      if (!user) {
-        return res.send('incorrect login');
-      }
-      req.logIn(user, function(err) {
-        console.log('is logIn', user);
-        if (err) {
-          return next(err);
-        }
-        return res.send(200, user);
-      });
-    })(req, res, next);
+      return res.redirect(302, '/#/register');
+    });
+  })(req, res, next);
 });
 
 //nodemailer

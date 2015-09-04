@@ -6,7 +6,7 @@ module.exports = {
   create: function(req, res) {
     console.log('this is userCtrl', req.body);
     var newUser = new User(req.body);
-    console.log('this is userCtrl newUser', req.body);
+    console.log('this is userCtrl newUser', newUser);
     newUser.save(function(err, result) {
       console.log('this is userCtrl err', err);
       console.log('this is userCtrl result', result);

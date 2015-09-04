@@ -170,6 +170,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     registrationService.login(data).then(function(response) {
       console.log('this is login response', response);
       if (response === "incorrect login") {
+        $scope.error = ""
 
       } else {
         $location.path("/register");
