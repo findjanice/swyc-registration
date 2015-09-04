@@ -42,7 +42,7 @@ module.exports = {
 
 
   update: function(req, res) {
-    Registration.findByIdAndUpdate(req.params.id, req.body, function(err,
+    Registration.findByIdAndRemove(req.params.id, function(err,
       result) {
       if (err) return res.status(500).send(err);
       res.send(result);
