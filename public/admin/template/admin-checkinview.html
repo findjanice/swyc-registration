@@ -1,19 +1,32 @@
 <link rel="stylesheet" ng-href="{{css}}">
-<div class="tablecontainer">
+<div class="tablecontainer" layout="row">
+	<div class="attendeeheader" flex>
+
 		<h2 class="md-title">Attendee Check-In</h2>
 		<br>
+
 </div>
+<md-button>	<a href="#/user-reg">
+		On-Site Registration
+	</a></md-button>
+		<md-button>	<a href="#/admin-dashboard">
+				Return to Dashboard
+			</a></md-button>
+
+</div>
+
+
 <div class="tablecontainer" layout="row">
 <table st-table="regInfo" st-safe-src="regInfoCollection" class="table table-striped">
 	<thead>
 	<tr>
-		<th st-sort="regtype">Type</th>
-		<th st-sort="room">Room</th>
-		<th st-sort="attendee.firstname">First Name</th>
-		<th st-sort="attendee.lastname">Last Name</th>
-		<th st-sort="checkin">Check-In</th>
-		<th st-sort="paid">Paid</th>
-    <th>Update</th>
+		<th st-sort="regtype"><b>Type</b></th>
+		<th st-sort="room"><b>Room</b></th>
+		<th st-sort="attendee.firstname"><b>First Name</b></th>
+		<th st-sort="attendee.lastname"><b>Last Name</b></th>
+		<th st-sort="checkin"><b>Check-In</b></th>
+		<th st-sort="paid"><b>Paid</b></th>
+    <th><b>Update</b></th>
 	</tr>
 
   <tr>

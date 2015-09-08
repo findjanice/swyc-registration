@@ -1,33 +1,41 @@
 <link rel="stylesheet" ng-href="{{css}}">
 
-<div class= "container">
-<div class="dashboardcontainer">
+<div class="container">
+  <div class="dashboardcontainer">
 
-<p class="md-title">
-  Hi Janice!
-</p>
-<br>
-<br>
-<div class="centered">
+    <p class="md-title">
+      Hi Janice!
+    </p>
+    <br>
+    <br>
+    <div class="centered">
 
-<md-grid-list
-        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="2:2"
-        md-gutter="12px" md-gutter-gt-sm="8px" >
-    <md-grid-tile class="green"
-        md-rowspan="1" md-colspan="2" md-colspan-sm="1">
-      <md-grid-tile-footer>
-        <h3>#1: (3r x 2c)</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
-    <md-grid-tile class="yellow" md-rowspan="1" md-colspan="2" md-colspan-sm="1">
-      <md-grid-tile-footer>
-        <h3>#2: (1r x 1c)</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
-  </md-grid-list>
-</div>
+      <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile class="green" md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+          <a href="#/admin-checkinview">
+            <div class="icon-alone">
+              <span class="icon-clipboard"></span>
+            </div>
+            <h2>Check-In and Attendee Info</h2>
+          </a>
+          <!-- <md-grid-tile-footer>
+        <h3 class="centertxt">Check-In and Attendee Info</h3>
+      </md-grid-tile-footer> -->
+        </md-grid-tile>
+        <md-grid-tile class="yellow" md-rowspan="2" md-colspan="2" md-colspan-sm="1">
+          <a href="#/admin-regview">
+            <div class="icon-alone">
+              <span class="icon-stats-dots"></span>
+            </div>
+            <h2>Dashboard View</h2>
+          </a>
+          <!-- <md-grid-tile-footer>
+        <h3>Dashboard View</h3>
+      </md-grid-tile-footer> -->
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
 
-</div>
+  </div>
 </div>
 </div>

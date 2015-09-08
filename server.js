@@ -96,12 +96,12 @@ router.route('/api/user')
 //registration end point
 router.route('/api/registration')
   .post(authCtrl.isAuthenticated, registrationCtrl.create)
-  .get(authCtrl.isAuthenticated, registrationCtrl.read);
+  .get(registrationCtrl.read);
 
 router.route('/api/registration/:id')
-  .get(authCtrl.isAuthenticated, registrationCtrl.readId)
-  .put(authCtrl.isAuthenticated, registrationCtrl.update)
-  .delete(authCtrl.isAuthenticated, registrationCtrl.delete);
+  .get(registrationCtrl.readId)
+  .put(registrationCtrl.update)
+  .delete(registrationCtrl.delete);
 
 //passport stuff
 
@@ -120,7 +120,7 @@ app.post('/login', function(req, res, next) {
       if (err) {
         return next(err);
       }
-      return res.redirect(302, '/#/register');
+      return res.send(user);
     });
   })(req, res, next);
 });

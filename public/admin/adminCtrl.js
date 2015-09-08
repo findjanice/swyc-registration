@@ -12,7 +12,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   this.state = $location.path();
 
-  this.go = function(path) {
+  $scope.go = function(path) {
     $location.path(path);
   };
 
@@ -28,7 +28,18 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   //edit items
   $scope.updateUser = function(data) {
+    console.log('this is updateUserCtrl', data);
     adminService.updateUser(data).then(function(response) {
+      console.log('this is updateUserCtrl response', response);
+      $location.path("/admin-checkinview");
+    })
+  }
+
+  //delete items
+  $scope.deleteUser = function(data) {
+    console.log('this is updateUserCtrl', data);
+    adminService.deleteUser(data).then(function(response) {
+      console.log('this is updateUserCtrl response', response);
       $location.path("/admin-checkinview");
     })
   }
@@ -45,7 +56,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.getRegbyId = function() {
     adminService.getRegbyId($scope.personId).then(function(response) {
-      console.log('this is the response', response);
+
       $scope.personData = response;
     })
   }
@@ -63,13 +74,12 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
         $scope.total += response[i].total;
         if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
-      console.log($scope.total);
+
     })
   }
 
   $scope.getRegTotal = function() {
     adminService.getRegInfo().then(function(response) {
-      console.log('this is response', response)
       for (var i in response) {
         if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
@@ -149,7 +159,6 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
         $scope.tshirt = tshirt;
         $scope.rooms = rooms;
 
-        console.log(regStatArr);
       }
     })
   }

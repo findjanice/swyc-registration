@@ -30,6 +30,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
       controller: 'registerCtrl',
       css: 'swyc/register/register.css'
     })
+    .when('/confirm-user', {
+      templateUrl: 'swyc/template/confirm-user.html',
+      controller: 'registerCtrl',
+      css: 'swyc/register/register.css'
+    })
     .when('/cc-confirm', {
       templateUrl: 'swyc/template/confirm-cc.html',
       controller: 'registerCtrl',

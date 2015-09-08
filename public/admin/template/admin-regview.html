@@ -1,6 +1,15 @@
 <link rel="stylesheet" ng-href="{{css}}">
 <div class="container">
+    <div layout="row">
+      <div flex>
+
+
   <h1>Registration Information</h1>
+</div>
+  <md-button>	<a href="#/admin-dashboard">
+      Return to Dashboard
+    </a></md-button>
+  </div>
   <md-grid-list
         md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
         md-row-height-gt-md="1:1" md-row-height="2:2"
@@ -46,7 +55,7 @@
     <md-grid-tile class="blue"
         md-rowspan="1" md-colspan="2" div ng-repeat="reg in lodgeCabin">
        <h1>Lodge: {{reg.Lodge}} |</h1>
-        <h1>Cabin:{{reg.Cabin}}</h1>
+        <h1>| Cabin: {{reg.Cabin}}</h1>
       <md-grid-tile-header>
         <h3>Registration by Type</h3>
       </md-grid-tile-header>

@@ -79,7 +79,7 @@ userSchema.pre('save', function(callback) {
   });
 });
 
-//Password match
+// Password match
 userSchema.methods.verifyPassword = function(password, cb) {
   var user = this;
   bcrypt.compare(password, this.password, function(err, isMatch) {

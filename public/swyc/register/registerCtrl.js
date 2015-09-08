@@ -58,7 +58,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
   $scope.regtype = "Lodge";
 
   $scope.setRegType = function(type) {
-    console.log("setRegType clicked")
     $scope.regtype = type;
     console.log('regtype...... ', $scope.regtype);
   }
@@ -68,6 +67,22 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
   }
 
   $scope.states();
+
+  $scope.login = function(data) {
+    registrationService.login(data).then(function(response) {
+      console.log('this is login response', response);
+      userId = response._id;
+      console.log('this is userId', userId);
+      if (response === "incorrect login") {
+        $scope.error = ""
+
+      } else {
+        $location.path("/register");
+      }
+
+    })
+  }
+
 
   //this post the User data and gets the userID at user.html
 
@@ -146,6 +161,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       data.attendee = userId;
       data.paid = true;
       $scope.attendeeCC = data;
+      console.log('this is scope.attendeeCC', $scope.attendeeCC);
     }
     //end of postReg
 
@@ -166,18 +182,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('this is total', $scope.total);
   }
 
-  $scope.login = function(data) {
-    registrationService.login(data).then(function(response) {
-      console.log('this is login response', response);
-      if (response === "incorrect login") {
-        $scope.error = ""
-
-      } else {
-        $location.path("/register");
-      }
-
-    })
-  }
 
   //end homeCtrl
 })

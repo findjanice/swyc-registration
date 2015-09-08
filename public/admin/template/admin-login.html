@@ -14,7 +14,6 @@
   <br>
     <md-content layout-padding class="autoScroll" ng-model="user">
       <md-input-container class="md-icon-float" >
-        <!-- Use floating label instead of placeholder -->
         <label>User Name</label>
         <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
         <input ng-model="user.username" type="text">
@@ -24,7 +23,7 @@
         <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
         <input ng-model="user.password" type="password">
       </md-input-container>
-      <md-button class=" raised btn1" ng-click="adminlogin(user)">Log In</md-button>
+      <md-button class=" raised btn1" ng-click="go('/admin-dashboard')">Log In</md-button>
     </div>
 </div>
 </div>

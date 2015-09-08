@@ -111,6 +111,9 @@ app.service('dataService', function($http, $q) {
   }, {
     name: "Kyle Allen",
     occupation: "Secretary-Treasurer, ASI"
+  }, {
+    name: "Janice Adea  ",
+    occupation: "Student, DevMountain"
   }];
 
   var conferenceInfo = [{

@@ -3,9 +3,10 @@ var Registration = require('../models/registration');
 
 module.exports = {
   create: function(req, res) {
-    console.log('this is registrationCtrl', req.body);
+    ('this is create Reg', req.body);
     var newRegistration = new Registration(req.body);
     newRegistration.save(function(err, result) {
+      ('this is save', result);
       if (err) return res.status(500).send(err);
       res.send(result)
     });
@@ -42,12 +43,12 @@ module.exports = {
 
 
   update: function(req, res) {
-    Registration.findByIdAndRemove(req.params.id, function(err,
+    Registration.findByIdAndUpdate(req.params.id, req.body, function(err,
       result) {
       if (err) return res.status(500).send(err);
       res.send(result);
     });
-  },
+  }
 
 
 

@@ -10,24 +10,21 @@
     };
 
     this.postUser = function(data) {
+      var deferred = $q.defer();
       data.role = "attendee";
-      console.log('this is in postProduct', data);
-      return $http({
-        url: 'http://localhost:3000/api/user',
-        method: 'POST',
-        data: data
-      })
+      $http({
+          url: 'http://localhost:3000/api/user',
+          method: 'POST',
+          data: data
+        })
+        .then(function(data) {
+          console.log('this is regServiceData', data);
+          deferred.resolve(data.data);
+        })
+      return deferred.promise;
     };
 
-    this.postReg = function(data) {
-      data.checkin = "false";
-      console.log('this is in postRegSrvc', data);
-      return $http({
-        url: 'http://localhost:3000/api/registration',
-        method: 'POST',
-        data: data
-      })
-    };
+    this.userId;
 
     this.login = function(data) {
       var deferred = $q.defer();
@@ -37,11 +34,29 @@
         method: 'POST',
         data: data
       }).then(function(data) {
-        console.log('this is regServiceData', data);
+        console.log('this is login service', data);
+        userId = data._id;
+        console.log('this is userId', userId);
         deferred.resolve(data.data)
       })
       return deferred.promise;
     };
+
+
+    this.postReg = function(data) {
+      data.attendee = userId;
+      console.log('this is data.attendee',
+        data.attendee
+      )
+      data.checkin = "false";
+      return $http({
+        url: 'http://localhost:3000/api/registration',
+        method: 'POST',
+        data: data
+      })
+    };
+
+
 
     //end service
   })

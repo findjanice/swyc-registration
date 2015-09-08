@@ -7,9 +7,15 @@ body {
 input {
   outline: none;
 }
+.icon-clipboard:before {
+    content: "\e612";
+}
 
+.icon-stats-dots:before {
+    content: "\e611";
+}
 .admincontainer {
-  height: 300px;
+  height: 380px;
   outline: none;
   margin: 0 auto;
 }
@@ -37,6 +43,13 @@ input {
 /* ============================================================
   SECTIONS
 ============================================================ */
+
+
+
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: none}
 
 .icon-alone {
   display: inline-block; /* Fix for clickability issue in WebKit */
