@@ -90,7 +90,8 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     console.log('this is in controller', data);
     registrationService.postUser(data)
       .then(function(data) {
-        userId = data.data._id;
+        console.log('this is postUser data', data);
+        userId = data._id;
       })
   };
 

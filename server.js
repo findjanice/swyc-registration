@@ -95,7 +95,7 @@ router.route('/api/user')
   .get(authCtrl.isAuthenticated, userCtrl.read);
 //registration end point
 router.route('/api/registration')
-  .post(authCtrl.isAuthenticated, registrationCtrl.create)
+  .post(registrationCtrl.create)
   .get(registrationCtrl.read);
 
 router.route('/api/registration/:id')
@@ -164,7 +164,7 @@ app.post('/contact', function(req, res) {
 //end nodemailer
 
 //connections
-var port = 3000;
+var port = 8000;
 var mongoUri = 'mongodb://localhost:27017/swyc-registration';
 
 mongoose.connect(mongoUri);

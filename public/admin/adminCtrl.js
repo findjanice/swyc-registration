@@ -131,6 +131,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
 
   $scope.regStatTotal = function() {
     adminService.getRegInfo().then(function(response) {
+       console.log('this is response', response);
       var regStatArr = {};
       for (var i = 0; i < response.length; i++) {
         for (var prop in response[i]) {
@@ -152,7 +153,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
         var checkIn = _.pick(regStatArr, 'checkin');
         var rooms = _.pick(regStatArr, 'room');
         var paid = _.pick(regStatArr, 'paid');
-        console.log('this is rooms', rooms);
+       
 
         $scope.paid = paid;
         $scope.checkin = checkIn;

@@ -2,6 +2,7 @@ var Registration = require('../models/registration');
 
 
 module.exports = {
+
   create: function(req, res) {
     ('this is create Reg', req.body);
     var newRegistration = new Registration(req.body);
