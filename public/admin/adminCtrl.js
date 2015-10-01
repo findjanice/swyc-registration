@@ -19,27 +19,20 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
   $scope.regInfo = [];
 
   $scope.checkIn = function(data) {
-    console.log(data);
     data.checkin = true;
-    adminService.checkIn(data).then(function(response) {
-      console.log('repsonse says', response);
-    })
+    adminService.checkIn(data).then(function(response) {})
   }
 
   //edit items
   $scope.updateUser = function(data) {
-    console.log('this is updateUserCtrl', data);
     adminService.updateUser(data).then(function(response) {
-      console.log('this is updateUserCtrl response', response);
       $location.path("/admin-checkinview");
     })
   }
 
   //delete items
   $scope.deleteUser = function(data) {
-    console.log('this is updateUserCtrl', data);
     adminService.deleteUser(data).then(function(response) {
-      console.log('this is updateUserCtrl response', response);
       $location.path("/admin-checkinview");
     })
   }
@@ -125,13 +118,11 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
       for (var i in response) {
         if (response.hasOwnProperty(i)) $scope.getTotalRegCount++;
       }
-      // console.log($scope.total);
     })
   };
 
   $scope.regStatTotal = function() {
     adminService.getRegInfo().then(function(response) {
-       console.log('this is response', response);
       var regStatArr = {};
       for (var i = 0; i < response.length; i++) {
         for (var prop in response[i]) {
@@ -153,7 +144,7 @@ app.controller('adminCtrl', function($scope, $filter, $routeParams,
         var checkIn = _.pick(regStatArr, 'checkin');
         var rooms = _.pick(regStatArr, 'room');
         var paid = _.pick(regStatArr, 'paid');
-       
+
 
         $scope.paid = paid;
         $scope.checkin = checkIn;

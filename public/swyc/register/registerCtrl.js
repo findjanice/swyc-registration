@@ -59,7 +59,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
 
   $scope.setRegType = function(type) {
     $scope.regtype = type;
-    console.log('regtype...... ', $scope.regtype);
   }
 
   $scope.states = function() {
@@ -70,9 +69,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
 
   $scope.login = function(data) {
     registrationService.login(data).then(function(response) {
-      console.log('this is login response', response);
       userId = response._id;
-      console.log('this is userId', userId);
       if (response === "incorrect login") {
         $scope.error = ""
 
@@ -87,10 +84,8 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
   //this post the User data and gets the userID at user.html
 
   $scope.postUser = function(data) {
-    console.log('this is in controller', data);
     registrationService.postUser(data)
       .then(function(data) {
-        console.log('this is postUser data', data);
         userId = data._id;
       })
   };
@@ -162,7 +157,7 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
       data.attendee = userId;
       data.paid = true;
       $scope.attendeeCC = data;
-      console.log('this is scope.attendeeCC', $scope.attendeeCC);
+
     }
     //end of postReg
 
@@ -178,9 +173,6 @@ app.controller('registerCtrl', function($scope, $routeParams, $route, $location,
     if ($scope.register.shirttype) $scope.shirtprice = 12
     if ($scope.register.shirttype === "None") $scope.shirtprice = 0
     if (!$scope.register.shirttype) $scope.shirtprice = 0
-    console.log('this is shirtprice', $scope.shirtprice);
-    $scope.total = $scope.shirtprice + $scope.register.room
-    console.log('this is total', $scope.total);
   }
 
 

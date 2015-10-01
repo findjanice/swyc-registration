@@ -3,7 +3,7 @@ app.directive('stripeTransact', function($http, $rootScope) {
     restrict: 'E',
     scope: true,
     link: function(scope, elem, attrs) {
-      console.log('this is directive scope', scope);
+
 
       var handler = StripeCheckout.configure({
         key: 'pk_test_xI481oAzsUc47D1izTNjWldz',
@@ -13,8 +13,6 @@ app.directive('stripeTransact', function($http, $rootScope) {
           var $input = $('<input type=hidden name=stripeToken />').val(
             token.id);
           $('form').append($input).submit();
-          console.log('this is token,',
-            token);
 
           $http.post('/api/payment', token)
             .success(function(response) {
