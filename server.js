@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var stripe = require('stripe')('sk_test_Ns26RNDadYy1USJuPMbjalcS');
 var passport = require('passport');
-// var BasicStrategy = require('passport-http').BasicStrategy;
 var LocalStrategy = require("passport-local").Strategy;
 var app = express();
 var session = require('express-session');
@@ -131,8 +130,8 @@ app.post('/contact', function(req, res) {
   var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'findjanice@gmail.com',
-      pass: 'zylgfngbbavbgafb'
+      user: '',
+      pass: ''
     }
   });
 
