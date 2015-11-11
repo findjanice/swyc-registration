@@ -28,6 +28,9 @@
   "bugs": {
     "url": "https://github.com/findjanice/swyc-registration/issues"
   },
+  "engines": {
+    "node": "3.0.0"
+  },
   "homepage": "https://github.com/findjanice/swyc-registration#readme",
   "description": ""
 }
