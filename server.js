@@ -10,6 +10,7 @@ var LocalStrategy = require("passport-local").Strategy;
 var app = express();
 var session = require('express-session');
 var router = express.Router();
+var uriUtil = require('mongodb-uri');
 
 //controllers
 
@@ -70,7 +71,7 @@ passport.deserializeUser(function(user, done) {
 
 
 //middleware
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(session({
   secret: "iknowwhomibeleive",
@@ -164,13 +165,36 @@ app.post('/contact', function(req, res) {
 
 //connections
 var port = 8000;
-var mongoUri = 'mongodb://localhost:27017/swyc-registration';
 
-mongoose.connect(mongoUri);
+var mongodbUri =
+  "mongodb://janice:adea@ds053894.mongolab.com:53894/swycproject";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongodbUri);
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', function() {
-  console.log('Connected to mongodb @', mongoUri);
-})
+    console.log('Connected to mongodb @', mongodbUri);
+  })
+  // var mongoUrl = 'mongodb://localhost:27017/swyc-registration';
+  //
+  // mongoose.connect(mongoUrl);
+  // var db = mongoose.connection;
+  // db.on('error', console.error.bind(console, 'connection error:'));
+  // db.once('open', function() {
+  //   console.log('Connected to mongodb @', mongoUri);
+  // })
 
+// var connectWithRetry = function() {
+//   return mongoose.connect(mongoUrl, function(err) {
+//     if (err) {
+//       console.error(
+//         'Failed to connect to mongo on startup - retrying in 5 sec',
+//         err);
+//       setTimeout(connectWithRetry, 5000);
+//     }
+//   });
+// };
+// connectWithRetry();
 
 
 var server = app.listen(process.env.PORT || port, function() {
