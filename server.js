@@ -178,7 +178,7 @@ app.post('/contact', function(req, res) {
 
 //connections
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 
 var mongodbUri =
   "mongodb://janice:adea@ds053894.mongolab.com:53894/swycproject";
