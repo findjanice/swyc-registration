@@ -12,6 +12,7 @@ var session = require('express-session');
 var router = express.Router();
 var uriUtil = require('mongodb-uri');
 
+
 //controllers
 
 var userCtrl = require('./controller/userCtrl');
@@ -71,7 +72,19 @@ passport.deserializeUser(function(user, done) {
 
 
 //middleware
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
+
+// set the home page route
+app.get('/', function(req, res) {
+
+  // ejs render automatically looks in the views folder
+  res.render('index');
+});
+
 app.use(bodyParser.json());
 app.use(session({
   secret: "iknowwhomibeleive",
@@ -164,7 +177,8 @@ app.post('/contact', function(req, res) {
 //end nodemailer
 
 //connections
-var port = 8000;
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
 
 var mongodbUri =
   "mongodb://janice:adea@ds053894.mongolab.com:53894/swycproject";
@@ -173,28 +187,8 @@ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 mongoose.connect(mongodbUri);
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', function() {
-    console.log('Connected to mongodb @', mongodbUri);
-  })
-  // var mongoUrl = 'mongodb://localhost:27017/swyc-registration';
-  //
-  // mongoose.connect(mongoUrl);
-  // var db = mongoose.connection;
-  // db.on('error', console.error.bind(console, 'connection error:'));
-  // db.once('open', function() {
-  //   console.log('Connected to mongodb @', mongoUri);
-  // })
-
-// var connectWithRetry = function() {
-//   return mongoose.connect(mongoUrl, function(err) {
-//     if (err) {
-//       console.error(
-//         'Failed to connect to mongo on startup - retrying in 5 sec',
-//         err);
-//       setTimeout(connectWithRetry, 5000);
-//     }
-//   });
-// };
-// connectWithRetry();
+  console.log('Connected to mongodb @', mongodbUri);
+})
 
 
 var server = app.listen(process.env.PORT || port, function() {
