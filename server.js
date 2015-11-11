@@ -73,17 +73,17 @@ passport.deserializeUser(function(user, done) {
 
 //middleware
 // set the view engine to ejs
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
 // set the home page route
-app.get('/', function(req, res) {
+// app.get('/', function(req, res) {
 
-  // ejs render automatically looks in the views folder
-  res.render('index');
-});
+// ejs render automatically looks in the views folder
+//   res.render('index');
+// });
 
 app.use(bodyParser.json());
 app.use(session({
