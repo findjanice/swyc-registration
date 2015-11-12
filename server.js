@@ -178,8 +178,23 @@ app.post('/contact', function(req, res) {
 // mongoose.connection.once('open', function() {
 //   console.log('Connected to mongodb @', mongodbUri);
 // })
+var portNum = config.portNum;
 
+var mongooseUri = 'mongodb://localhost/swyc';
+mongoose.connect(mongooseUri);
 
-var server = app.listen(portNum, function() {
-  console.log('Server up and running at', server.address().port);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(callback) {
+  console.log('Mongoose caressing your soul on:', mongooseUri);
 });
+
+
+app.listen(portNum, function() {
+  console.log('Making some funcakes on port:', portNum);
+});
+
+//
+// var server = app.listen(portNum, function() {
+//   console.log('Server up and running at', server.address().port);
+// });
