@@ -3,7 +3,7 @@ app.service('adminService', function($http, $q) {
   this.getRegInfo = function() {
     var deferred = $q.defer();
     $http({
-      url: 'https://localhost:3000/api/registration',
+      url: '/api/registration',
       method: 'GET'
     }).then(function(data) {
       deferred.resolve(data.data)
@@ -14,7 +14,7 @@ app.service('adminService', function($http, $q) {
   this.getRegbyId = function(data) {
     var deferred = $q.defer();
     $http({
-      url: 'https://localhost:3000/api/registration/' + data,
+      url: '/api/registration/' + data,
       method: 'GET',
       data: data
     }).then(function(response) {
@@ -26,7 +26,7 @@ app.service('adminService', function($http, $q) {
   this.updateUser = function(data) {
     var deferred = $q.defer();
     $http({
-      url: 'https://localhost:3000/api/registration/' + data._id,
+      url: '/api/registration/' + data._id,
       method: 'PUT',
       data: data
     }).then(function(response) {
@@ -38,7 +38,7 @@ app.service('adminService', function($http, $q) {
   this.deleteUser = function(data) {
     var deferred = $q.defer();
     $http({
-      url: 'https://localhost:3000/api/registration/' + data._id,
+      url: '/api/registration/' + data._id,
       method: 'DELETE',
       data: data
     }).then(function(response) {
@@ -51,7 +51,7 @@ app.service('adminService', function($http, $q) {
   this.checkIn = function(data) {
     var deferred = $q.defer();
     $http({
-      url: 'https://localhost:3000/api/registration/' + data._id,
+      url: '/api/registration/' + data._id,
       method: 'PUT',
       data: data,
       cache: 'true'

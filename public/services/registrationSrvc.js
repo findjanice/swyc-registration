@@ -14,7 +14,7 @@
       var deferred = $q.defer();
       data.role = "attendee";
       $http({
-          url: 'https://localhost:3000/api/user',
+          url: '/api/user',
           method: 'POST',
           data: data
         })
@@ -30,7 +30,7 @@
     this.login = function(data) {
       var deferred = $q.defer();
       $http({
-        url: 'https://localhost:3000/login',
+        url: '/login',
         method: 'POST',
         data: data
       }).then(function(data) {
@@ -45,7 +45,7 @@
       data.attendee = userId;
       data.checkin = "false";
       return $http({
-        url: 'https://localhost:3000/api/registration',
+        url: '/api/registration',
         method: 'POST',
         data: data
       })
