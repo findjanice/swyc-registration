@@ -11,7 +11,7 @@ var app = express();
 var session = require('express-session');
 var router = express.Router();
 var uriUtil = require('mongodb-uri');
-var config = require('./config.js');
+var config = require('./controller/config.js');
 var portNum = config.portNum;
 
 //controllers
@@ -165,19 +165,7 @@ app.post('/contact', function(req, res) {
 });
 //end nodemailer
 
-//connections
-// process.env.PORT lets the port be set by Heroku
-// var port = process.env.PORT || 80;
-//
-// var mongodbUri =
-//   "mongodb://janice:adea@ds053894.mongolab.com:53894/swycproject";
-// var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-// mongoose.connect(port);
-// mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-// mongoose.connection.once('open', function() {
-//   console.log('Connected to mongodb @', mongodbUri);
-// })
+// Connections
 var portNum = config.portNum;
 
 var mongooseUri = 'mongodb://localhost/swyc';
@@ -186,15 +174,10 @@ mongoose.connect(mongooseUri);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(callback) {
-  console.log('Mongoose caressing your soul on:', mongooseUri);
+  console.log('Mongoose can hear you on:', mongooseUri);
 });
 
 
 app.listen(portNum, function() {
-  console.log('Making some funcakes on port:', portNum);
+  console.log('this is the port:', portNum);
 });
-
-//
-// var server = app.listen(portNum, function() {
-//   console.log('Server up and running at', server.address().port);
-// });
