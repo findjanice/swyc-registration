@@ -11,23 +11,8 @@ var app = express();
 var session = require('express-session');
 var router = express.Router();
 var uriUtil = require('mongodb-uri');
-var pg = require('pg');
-
-var connectionString =
-  "postgres://dvotagijtoqfow:BlLtByT7OVt0JFi9BVaM2XUHbP@ec2-107-21-223-147.compute-1.amazonaws.com:5432/ddhofjhhsf70ql"
-
-//pg connect
-
-pg.connect(connectionString, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-
-  client
-    .query('SELECT table_schema,table_name FROM information_schema.tables;')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
-    });
-});
+var config = require('./config.js');
+var portNum = config.portNum;
 
 //controllers
 
@@ -182,19 +167,19 @@ app.post('/contact', function(req, res) {
 
 //connections
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 3000;
-
+// var port = process.env.PORT || 80;
+//
 // var mongodbUri =
 //   "mongodb://janice:adea@ds053894.mongolab.com:53894/swycproject";
 // var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-//
-// mongoose.connect(mongodbUri);
+
+// mongoose.connect(port);
 // mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 // mongoose.connection.once('open', function() {
 //   console.log('Connected to mongodb @', mongodbUri);
 // })
-// 
 
-var server = app.listen(process.env.PORT || port, function() {
+
+var server = app.listen(portNum, function() {
   console.log('Server up and running at', server.address().port);
 });
